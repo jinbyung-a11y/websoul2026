@@ -1281,6 +1281,7 @@ body {
     gap: 2rem;
     align-items: start;
     padding: var(--spacing-md) 0;
+    padding-left: 400px; /* PC 버전 간격 유지, 태블릿/모바일에서 미디어쿼리로 제거 */
     border-bottom: 1px solid var(--gray-800);
 }
 
@@ -1348,6 +1349,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-top: var(--spacing-md);
+    padding-left: 400px; /* PC 버전 간격 유지, 태블릿/모바일에서 미디어쿼리로 제거 */
     font-size: var(--font-size-sm);
 }
 
@@ -1399,6 +1401,11 @@ body {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         text-align: center;
+        padding-left: 0;
+    }
+    
+    .footer-bottom {
+        padding-left: 0;
     }
     
     .footer-brand {
