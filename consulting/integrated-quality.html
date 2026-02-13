@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - 웹 사이트 통합품질 컨설팅 (WICC)">
+    <title>웹 사이트 통합품질 컨설팅 - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* [WICC] Premium Overrides - 이 페이지 전용 고급 스타일 */
+        :root {
+            --wicc-primary-blue: #2563eb;
+            --wicc-shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --wicc-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+
+        /* 본문 색상: intro.html과 동일 (pages.css content-section 기준) */
+        .wicc-premium-body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .premium-hero {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .premium-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.4;
+            animation: wiccMoveBg 100s linear infinite;
+        }
+        @keyframes wiccMoveBg {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: wiccFadeInUp 1s ease-out;
+        }
+        @keyframes wiccFadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            color: #93c5fd;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+        }
+
+        /* WICC 서비스란 ↔ 6대 품질 관리 원칙 간격 축소 */
+        .main-content.intro .content-section--lead {
+            margin-bottom: var(--spacing-sm, 1rem);
+        }
+        .content-section--lead + .section-wrapper {
+            padding-top: var(--spacing-sm, 1rem);
+        }
+        /* Section Common (intro.html 영역 간격과 동일) */
+        .section-wrapper {
+            padding: var(--spacing-lg, 2rem) 0;
+            position: relative;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-md, 1.5rem);
+        }
+        /* 6대 품질 제목·부제: intro.html과 동일한 색상 (content-section h2, p) */
+        .section-header h2 {
+            font-size: var(--font-size-3xl, 1.875rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+        }
+        .section-header p {
+            color: var(--gray-600);
+            font-size: var(--font-size-xl, 1.25rem);
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        @media (min-width: 768px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .bento-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 300px); }
+        }
+        .bento-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--spacing-lg, 2rem);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--wicc-shadow-soft);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--wicc-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .bento-item.large { grid-column: span 1; }
+        @media (min-width: 1024px) {
+            .bento-item.large { grid-column: span 2; }
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wicc-primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .bento-item h3 {
+            font-size: var(--font-size-xl, 1.25rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            color: var(--gray-900);
+        }
+        .bento-item p {
+            color: var(--gray-600);
+            line-height: 1.6;
+            font-size: var(--font-size-sm, 0.875rem);
+        }
+        .bento-bg-deco {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 8rem;
+            opacity: 0.03;
+            color: var(--gray-900);
+            font-weight: 900;
+            pointer-events: none;
+        }
+
+        /* Process Section */
+        .process-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: var(--spacing-md, 1.5rem) var(--spacing-lg, 2rem);
+        }
+        .process-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-300);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .process-line-fill {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            background: var(--wicc-primary-blue);
+            transform: translateX(-50%);
+            z-index: 1;
+            height: 0%;
+            transition: height 0.3s ease-out;
+        }
+        .wicc-process-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl, 3rem);
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .wicc-process-step.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .wicc-process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .step-content {
+            width: 45%;
+            background: var(--white);
+            padding: var(--spacing-lg, 2rem);
+            border-radius: 20px;
+            box-shadow: var(--wicc-shadow-soft);
+            position: relative;
+        }
+        .step-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: var(--wicc-primary-blue);
+        }
+        .wicc-process-step:nth-child(odd) .step-content::before { right: -20px; }
+        .wicc-process-step:nth-child(even) .step-content::before { left: -20px; }
+        .step-number-display {
+            font-size: 4rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--gray-300);
+            position: absolute;
+            top: -30px;
+            right: 20px;
+            z-index: 0;
+        }
+        .step-marker {
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border: 4px solid var(--gray-300);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+        .wicc-process-step.active .step-marker {
+            border-color: var(--wicc-primary-blue);
+            background: var(--wicc-primary-blue);
+            box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.2);
+        }
+        @media (max-width: 768px) {
+            .process-line, .process-line-fill { left: 20px; }
+            .step-marker { left: 20px; }
+            .wicc-process-step { flex-direction: column !important; align-items: flex-start; padding-left: 50px; }
+            .step-content { width: 100%; }
+            .wicc-process-step:nth-child(odd) .step-content::before,
+            .wicc-process-step:nth-child(even) .step-content::before {
+                right: auto; left: -30px; width: 30px;
+            }
+        }
+
+        /* Marquee */
+        .marquee-wrapper {
+            background: #1e293b;
+            padding: 80px 0;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+        .marquee-wrapper .section-header h2 { color: white; }
+        .marquee-wrapper .section-header p { color: rgba(255,255,255,0.6); }
+        .marquee-wrapper::before, .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .marquee-wrapper::before { left: 0; background: linear-gradient(to right, #1e293b, transparent); }
+        .marquee-wrapper::after { right: 0; background: linear-gradient(to left, #1e293b, transparent); }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: wiccMarquee 40s linear infinite;
+        }
+        @keyframes wiccMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .logo-item {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            margin: 0 40px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        .logo-item:hover { color: white; }
+
+        /* Download Section */
+        .wicc-download-section {
+            text-align: center;
+            background: white;
+        }
+        .wicc-download-section .btn-download {
+            display: inline-block;
+            background: var(--wicc-primary-blue);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+            transition: transform 0.2s;
+        }
+        .wicc-download-section .btn-download:hover { transform: translateY(-2px); }
+        .wicc-download-section.section-wrapper {
+            padding: var(--spacing-xl, 3rem) 0;
+        }
+        .content-section--download .section-subtitle {
+            margin-bottom: var(--spacing-md, 1.5rem);
+        }
+    </style>
+</head>
+<body class="wicc-premium-body">
+    <div id="header-placeholder"></div>
+
+    <!-- intro.html 형식: page-header (breadcrumb + title + subtitle) -->
+    <section class="page-header page-header--consulting">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">컨설팅 및 구축</a><span>/</span><span>웹 사이트 통합품질 컨설팅</span></div>
+            <h1 class="page-title">웹 사이트 통합품질 컨설팅 (WICC)</h1>
+            <p class="page-subtitle">Web Integrated Consulting Center - 웹 접근성, 웹 호환성, 웹 개방성, 웹 편의성 등을 한 번에</p>
+        </div>
+    </section>
+
+    <!-- intro.html 형식: page-container > submenu > main.main-content.intro > page-content -->
+    <div class="page-container">
+        <div id="submenu-placeholder"></div>
+        <main class="main-content intro">
+            <section class="page-content" id="main-content">
+                <div class="container">
+
+                    <!-- 리드 문단 (intro 형식) -->
+                    <div class="content-section content-section--lead">
+                        <h2>WICC 서비스란?</h2>
+                        <p class="lead">수많은 홈페이지 웹사이트 통합 품질관리, WICC 서비스로 한번에 끝냈다!</p>
+                        <p>WICC(Web Integrated Consulting Center)는 웹 접근성, 웹 호환성, 웹 개방성, 웹 편의성, 웹 접속성, 웹 신뢰성을 통합적으로 진단하고 개선하는 원스톱 서비스입니다. 전자정부 웹사이트 품질관리 가이드에 따른 6대 품질 요소를 한 번에 관리하여 비용과 기간을 절감합니다.</p>
+                    </div>
+
+                    <!-- 6대 품질 관리 원칙 (Bento Grid) -->
+                    <div class="section-wrapper">
+                        <div class="section-header">
+                            <h2>6대 품질 관리 원칙</h2>
+                            <p>WICC가 제공하는 빈틈없는 품질 기준을 확인하세요.</p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item large">
+                                <div class="bento-bg-deco">A11y</div>
+                                <div class="bento-icon">♿</div>
+                                <div>
+                                    <h3>웹 접근성 (Accessibility)</h3>
+                                    <p>한국형 웹콘텐츠 접근성 지침 2.2(KWCAG)를 준수합니다. 장애인과 고령자를 포함한 모든 사용자가 정보에 평등하게 접근할 수 있도록 전문가 진단을 수행합니다.</p>
+                                </div>
+                            </div>
+                            <div class="bento-item large">
+                                <div class="bento-bg-deco">W3C</div>
+                                <div class="bento-icon">🌐</div>
+                                <div>
+                                    <h3>웹 호환성 (Compatibility)</h3>
+                                    <p>Chrome, Edge, Safari 등 5대 브라우저 및 다양한 모바일 디바이스에서 깨짐 없는 완벽한 사용자 경험을 보장합니다. W3C 웹 표준을 엄격히 준수합니다.</p>
+                                </div>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🔓</div>
+                                <h3>웹 개방성</h3>
+                                <p>검색엔진 최적화(SEO) 및 Open API 진단을 통해 정보 공유 환경을 구축합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">✨</div>
+                                <h3>웹 편의성</h3>
+                                <p>디지털정부 UI/UX 가이드라인에 맞춰 사용자 중심의 인터페이스를 설계합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🚀</div>
+                                <h3>웹 접속성</h3>
+                                <p>페이지 로딩 속도와 용량을 최적화하여 쾌적한 접속 환경을 제공합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🛡️</div>
+                                <h3>웹 신뢰성</h3>
+                                <p>링크 오류(Dead Link) 제거 및 정확한 지도 API 사용으로 신뢰도를 높입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WICC 컨설팅 프로세스 (5단계) -->
+                    <div class="section-wrapper" style="background: var(--gray-100);">
+                        <div class="section-header">
+                            <h2>WICC 컨설팅 프로세스</h2>
+                            <p>체계적인 5단계 진단 시스템으로 품질을 완성합니다.</p>
+                        </div>
+                        <div class="process-container">
+                            <div class="process-line"></div>
+                            <div class="process-line-fill" id="processLineFill"></div>
+                            <div class="wicc-process-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <div class="step-number-display">01</div>
+                                    <h3>진단 계획 수립</h3>
+                                    <p>진단 대상을 명확히 확보하고, 기관별 담당자 교육 및 설명회를 통해 구체적인 진단 매뉴얼을 확정합니다.</p>
+                                </div>
+                            </div>
+                            <div class="wicc-process-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <div class="step-number-display">02</div>
+                                    <h3>사전 조사</h3>
+                                    <p>웹사이트의 현황을 정밀 분석하고, 자동 진단 툴을 활용해 기초 데이터를 수집하여 진단 방향을 설정합니다.</p>
+                                </div>
+                            </div>
+                            <div class="wicc-process-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <div class="step-number-display">03</div>
+                                    <h3>상반기 진단</h3>
+                                    <p>전문가 수동 진단과 자동 진단을 병행하여 문제점을 도출하고, 1차 결과 보고서를 통해 개선점을 제시합니다.</p>
+                                </div>
+                            </div>
+                            <div class="wicc-process-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <div class="step-number-display">04</div>
+                                    <h3>하반기 진단 &amp; 개선</h3>
+                                    <p>상반기 진단 결과에 따른 이행 여부를 점검하고, 미흡한 부분에 대한 2차 정밀 진단 및 컨설팅을 수행합니다.</p>
+                                </div>
+                            </div>
+                            <div class="wicc-process-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <div class="step-number-display">05</div>
+                                    <h3>최종 보고서</h3>
+                                    <p>연간 품질 관리 내역을 종합 분석하여 최종 보고서를 작성하고, 향후 품질 유지 관리를 위한 가이드를 제공합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 전자정부 품질관리 가이드 다운로드 -->
+            <section class="section-wrapper wicc-download-section">
+                <div class="container">
+                    <div class="content-section content-section--download">
+                        <h2>전자정부 품질관리 가이드 다운로드</h2>
+                        <p class="section-subtitle">2025년 최신 전자정부 웹사이트 품질관리 지침을 확인하세요.</p>
+                        <a href="../images/consulting/integrated-quality/전자정부%20웹사이트%20품질관리%20가이드(20250630기준).pdf" download class="btn-download" target="_blank" rel="noopener noreferrer">가이드 다운로드 (PDF)</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var steps = document.querySelectorAll('.wicc-process-step');
+            var lineFill = document.getElementById('processLineFill');
+            var processContainer = document.querySelector('.process-container');
+            if (!processContainer || !lineFill) return;
+            var observerOptions = { root: null, rootMargin: '0px', threshold: 0.3 };
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, observerOptions);
+            steps.forEach(function(step) { observer.observe(step); });
+            window.addEventListener('scroll', function() {
+                var containerRect = processContainer.getBoundingClientRect();
+                var windowHeight = window.innerHeight;
+                var percentage = (windowHeight / 2 - containerRect.top) / containerRect.height * 100;
+                percentage = Math.max(0, Math.min(100, percentage));
+                lineFill.style.height = percentage + '%';
+            });
+        });
+    </script>
+</body>
+</html>

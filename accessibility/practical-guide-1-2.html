@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - 1.2 멀티미디어 대체 수단">
+    <title>1.2 멀티미디어 대체 수단 - 웹 접근성 실무 가이드 - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .guide-content-wrapper { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+        .guide-tabs { background: #f8fafc; padding: 0; margin: 0; border-bottom: 2px solid #e2e8f0; }
+        .guide-tabs-nav { display: flex; flex-wrap: wrap; gap: 0; padding: 0 1.5rem; }
+        .guide-tab { padding: 1rem 1.5rem; font-weight: 600; color: #64748b; text-decoration: none; border-bottom: 3px solid transparent; transition: all 0.2s; }
+        .guide-tab:hover { color: #2563eb; }
+        .guide-tab.active { color: #2563eb; border-bottom-color: #2563eb; }
+        .guide-subtabs { background: #fff; padding: 0.75rem 0; margin: 0 0 0; border-bottom: 1px solid #e2e8f0; }
+        .guide-subtabs-nav { display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0 1.5rem; }
+        .guide-subtab { padding: 0.5rem 1rem; font-size: 0.875rem; color: #64748b; text-decoration: none; border-radius: 6px; transition: all 0.2s; }
+        .guide-subtab:hover { background: #eff6ff; color: #2563eb; }
+        .guide-subtab.active { background: #2563eb; color: white; }
+        .guide-content-area { padding: 2rem 1.5rem; }
+        .guide-bullet-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e5e7eb; }
+        .guide-bullet-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .guide-bullet-item img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.75rem; }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <section class="page-header page-header--accessibility">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">웹 접근성의 이해</a><span>/</span><a href="practical-guide.html">웹 접근성 실무 가이드</a><span>/</span><span>1.2 멀티미디어 대체 수단</span></div>
+            <h1 class="page-title">웹 접근성 실무 가이드</h1>
+            <p class="page-subtitle">KWCAG 2.2 기준 실무 적용 가이드</p>
+        </div>
+    </section>
+
+    <div class="page-container">
+        <div id="submenu-placeholder"></div>
+        <div class="guide-content-wrapper">
+            <div class="guide-tabs">
+                <nav class="guide-tabs-nav">
+                    <a href="practical-guide-1-1.html" class="guide-tab active">인식의 용이성</a>
+                    <a href="practical-guide-2-1.html" class="guide-tab">운용의 용이성</a>
+                    <a href="practical-guide-3-1.html" class="guide-tab">이해의 용이성</a>
+                    <a href="practical-guide-4-1.html" class="guide-tab">견고성</a>
+                </nav>
+            </div>
+            <div class="guide-subtabs">
+                <nav class="guide-subtabs-nav">
+                    <a href="practical-guide-1-1.html" class="guide-subtab">1.1 대체텍스트</a>
+                    <a href="practical-guide-1-2.html" class="guide-subtab active">1.2 멀티미디어 대체 수단</a>
+                    <a href="practical-guide-1-3.html" class="guide-subtab">1.3 적응성</a>
+                    <a href="practical-guide-1-4.html" class="guide-subtab">1.4 명료성</a>
+                </nav>
+            </div>
+            <main class="main-content">
+            <section class="page-content" id="main-content">
+                <div class="container">
+                    <div class="guide-content-area">
+                        <h2>1.2 멀티미디어 대체 수단</h2>
+                        <p class="lead">멀티미디어 콘텐츠에는 자막, 원고 또는 수화를 제공해야 합니다.</p>
+                        <p>동영상, 오디오 등 멀티미디어 콘텐츠에 대체 수단을 제공하여 청각·시각 장애인도 동등하게 정보를 접근할 수 있도록 합니다.</p>
+
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">1.2.1. 자막 제공</h3>
+                        <p style="margin-bottom: 1.5rem;">멀티미디어 콘텐츠에는 자막, 대본 또는 수어를 제공해야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 멀티미디어 콘텐츠에 대체수단(자막, 원고, 수화 중 하나 이상)을 전혀 제공하지 않은 경우</p>
+                            <p>• 멀티미디어 콘텐츠에 대한 대체 수단의 내용을 불충분 또는 적절하지 않게 제공한 경우</p>
+                            <img src="../images/accessibility/practical-guide-1-2/guide1-2-1.jpg" alt="멀티미디어 대체수단 미제공 사례" />
+                        </div>                                
+                    </div>
+                </div>
+            </section>
+            </main>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - UI/UX 사용성 테스트">
+    <title>UI/UX 사용성 테스트 - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wa-primary-blue: #2563eb;
+            --wa-shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --wa-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+        .wa-premium-body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        .main-content.intro .content-section--lead { margin-bottom: var(--spacing-sm, 1rem); }
+        .content-section--lead + .section-wrapper { padding-top: var(--spacing-sm, 1rem); }
+        .section-wrapper { padding: var(--spacing-lg, 2rem) 0; position: relative; }
+        .section-header { text-align: center; margin-bottom: var(--spacing-md, 1.5rem); }
+        .section-header h2 {
+            font-size: var(--font-size-3xl, 1.875rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+        }
+        .section-header p { color: var(--gray-600); font-size: var(--font-size-xl, 1.25rem); }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+        .bento-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--spacing-lg, 2rem);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--wa-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wa-primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .bento-item h3 {
+            font-size: var(--font-size-xl, 1.25rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            color: var(--gray-900);
+        }
+        .bento-item p { color: var(--gray-600); line-height: 1.6; font-size: var(--font-size-sm, 0.875rem); }
+        .process-img-wrap {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg, 2rem);
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        .process-img-wrap img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--wa-shadow-soft);
+        }
+        .process-step-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .process-step-card:hover { box-shadow: var(--wa-shadow-hover); }
+        .process-step-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 14px;
+            color: var(--wa-primary-blue);
+        }
+        .process-step-icon svg { width: 28px; height: 28px; }
+        .process-step-content { flex: 1; min-width: 0; }
+        .process-step-content h3 { font-size: 1.125rem; font-weight: 700; margin: 0 0 0.375rem 0; color: var(--gray-900); }
+        .process-step-content p { margin: 0; color: var(--gray-600); font-size: 0.8125rem; line-height: 1.5; }
+        .process-step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        @media (max-width: 768px) { .process-step-grid { grid-template-columns: 1fr; } }
+        .importance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .importance-card { padding: 1.5rem; background: var(--white); border-radius: 16px; box-shadow: var(--wa-shadow-soft); text-align: center; }
+        .importance-icon { font-size: 2rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body class="wa-premium-body">
+    <div id="header-placeholder"></div>
+
+    <section class="page-header page-header--consulting">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">컨설팅 및 구축</a><span>/</span><span>UI/UX 사용성 테스트</span></div>
+            <h1 class="page-title">UI/UX 사용성 테스트</h1>
+            <p class="page-subtitle">실제 사용자를 통한 체계적인 사용성 평가 및 개선 방안 제시</p>
+        </div>
+    </section>
+
+    <div class="page-container">
+        <div id="submenu-placeholder"></div>
+        <main class="main-content intro">
+            <section class="page-content" id="main-content">
+                <div class="container">
+
+                    <div class="content-section content-section--lead">
+                        <h2>UI/UX 사용성 테스트란?</h2>
+                        <p class="lead">실제 사용자를 대상으로 제품이나 서비스의 사용성을 평가하여 사용자 경험을 개선하는 전문적인 테스트 서비스입니다.</p>
+                        <p>사용자가 제품을 실제로 사용하는 과정을 관찰하고 분석하여 직관성, 효율성, 만족도 등을 평가하고, 구체적인 개선 방안을 제시합니다.</p>
+                    </div>
+
+                    <div class="section-wrapper">
+                        <div class="section-header">
+                            <h2>사용성 테스트 특징</h2>
+                            <p>계획 수립·테스트 실행·데이터 분석·개선 방안 제시 4단계 프로세스로 진행합니다.</p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item">
+                                <div class="bento-icon">📋</div>
+                                <h3>계획 수립</h3>
+                                <p>테스트 목표, 대상 사용자, 시나리오, 평가 기준 등을 수립합니다. 테스트 목표 정의, 사용자 페르소나 설정, 테스트 시나리오 작성, 평가 기준 수립을 수행합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">👥</div>
+                                <h3>테스트 실행</h3>
+                                <p>선정된 사용자를 대상으로 실제 사용 과정을 관찰하고 데이터를 수집합니다. 사용자 모집·선정, 테스트 세션 진행, 사용 과정 관찰·녹화, 사용자 인터뷰를 수행합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">📊</div>
+                                <h3>데이터 분석</h3>
+                                <p>수집된 데이터를 정량적·정성적으로 분석하여 문제점을 도출합니다. 작업 완료율·작업 시간·오류율·만족도 분석을 수행합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">✅</div>
+                                <h3>개선 방안 제시</h3>
+                                <p>분석 결과를 바탕으로 우선순위가 있는 구체적인 개선 방안을 제시합니다. 문제점 우선순위 설정, 개선 방안 제시, 종합 리포트 작성, 개선 후 재테스트 지원을 수행합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-wrapper" style="background: var(--gray-100);">
+                        <div class="section-header">
+                            <h2>사용성 테스트 프로세스</h2>
+                            <p>계획 수립·테스트 실행·데이터 분석·개선 방안 제시 전 과정을 제공합니다.</p>
+                        </div>
+                        <div class="process-container" style="max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg);">
+                            <div class="standards-grid process-step-grid">
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>계획 수립</h3>
+                                        <p>테스트 목표·시나리오·평가 기준 수립</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>테스트 실행</h3>
+                                        <p>사용자 모집·테스트 세션·관찰·인터뷰</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>데이터 분석</h3>
+                                        <p>작업 완료율·시간·오류율·만족도 분석</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>개선 방안 제시</h3>
+                                        <p>종합 리포트·문제점 분석·개선안 제시</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-header" style="margin-top: 2.5rem;">
+                            <h2>테스트 방법</h2>
+                            <p>실험실 테스트, 원격 테스트, 필드 테스트, 휴리스틱 평가 등 다양한 방법을 적용합니다.</p>
+                        </div>
+                        <div class="process-container" style="max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg);">
+                            <div class="importance-grid">
+                                <div class="importance-card">
+                                    <div class="importance-icon">👥</div>
+                                    <h3>실험실 테스트</h3>
+                                    <p>전용 테스트 룸에서 사용자 행동을 직접 관찰·녹화</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">🏠</div>
+                                    <h3>원격 테스트</h3>
+                                    <p>온라인 도구로 실제 환경에서 테스트</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">📱</div>
+                                    <h3>필드 테스트</h3>
+                                    <p>실제 사용 환경에서 장기간 관찰</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">🔍</div>
+                                    <h3>휴리스틱 평가</h3>
+                                    <p>전문가가 사용성 원칙에 따라 평가</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">📊</div>
+                                    <h3>효율성·효과성</h3>
+                                    <p>작업 완료율·시간·오류율 분석</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">😊</div>
+                                    <h3>만족도</h3>
+                                    <p>SUS·NPS 점수 및 사용자 인터뷰</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="process-img-wrap" style="margin-top: 2.5rem;">
+                            <img src="../images/consulting/usability-test/usability-test.png" alt="UI/UX 사용성 테스트" />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

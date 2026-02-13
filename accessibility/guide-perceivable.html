@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - 원칙 1. 인식의 용이성">
+    <title>원칙 1. 인식의 용이성 - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .guide-content { max-width: 900px; margin: 0 auto; }
+        .guideline-item { background: white; padding: 2rem; border-radius: var(--radius-md); margin-bottom: 2rem; box-shadow: var(--shadow-sm); }
+        .guideline-item h3 { color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem; }
+        .guideline-item h4 { color: var(--gray-800); margin: 1.5rem 0 1rem; }
+        .example { background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0; border-left: 4px solid var(--gray-300); }
+        .example.correct { border-left-color: #059669; background: #f0fdf4; }
+        .example.wrong { border-left-color: #dc2626; background: #fef2f2; }
+        .example-label { font-weight: 700; margin-bottom: 0.5rem; }
+        .example.correct .example-label { color: #059669; }
+        .example.wrong .example-label { color: #dc2626; }
+        .code-block { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: var(--radius-sm); overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.6; }
+        .side-nav { position: sticky; top: 100px; background: white; padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        .side-nav h4 { margin-bottom: 1rem; color: var(--primary-color); }
+        .side-nav ul { list-style: none; padding: 0; }
+        .side-nav li { padding: 0.5rem 0; }
+        .side-nav a { color: var(--gray-700); text-decoration: none; transition: var(--transition-base); }
+        .side-nav a:hover { color: var(--primary-color); }
+        .two-column { display: grid; grid-template-columns: 1fr 250px; gap: 2rem; }
+        @media (max-width: 968px) { .two-column { grid-template-columns: 1fr; } .side-nav { position: static; } }
+    </style>
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="page-header page-header--accessibility">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="practical-guide.html">웹 접근성 실무 가이드</a><span>/</span><span>인식의 용이성</span></div>
+            <h1 class="page-title">원칙 1. 인식의 용이성 (Perceivable)</h1>
+            <p class="page-subtitle">모든 콘텐츠는 사용자가 인식할 수 있어야 합니다</p>
+        </div>
+    </section>
+
+    <!-- Main Content with Side Navigation -->
+    <div class="page-container">
+        <!-- Submenu Component Placeholder -->
+        <div id="submenu-placeholder"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="page-content" id="main-content">
+                <div class="container">
+                    <div class="two-column">
+                <div class="guide-content">
+                    <div class="guideline-item" id="alternative-text">
+                        <h3>1.1 대체 텍스트 제공</h3>
+                        <p><strong>텍스트 아닌 콘텐츠는 그 의미나 용도를 인식할 수 있도록 대체 텍스트를 제공해야 합니다.</strong></p>
+
+                        <h4>1.1.1 적절한 대체 텍스트 제공</h4>
+                        
+                        <p><strong>검사항목:</strong> img, input type="image" 등 이미지 요소에 alt 속성 제공</p>
+
+                        <div class="example wrong">
+                            <p class="example-label">❌ 잘못된 사례 - 내용을 요약하여 이미지의 정보를 대체할 수 없는 경우</p>
+                            <div class="code-block">&lt;img src="card-search.jpg" alt="내게 맞는 카드 찾기"/&gt;</div>
+                            <p style="margin-top: 0.5rem; color: var(--gray-700); font-size: 0.875rem;">* 이미지에 "질문과 키워드 검색을 통해 라이프스타일에 꼭 맞는 카드를 찾아보세요"라는 중요한 정보가 포함되어 있으나 alt에는 제목만 제공됨</p>
+                        </div>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 이미지가 제공하는 모든 내용을 alt 속성에 제공</p>
+                            <div class="code-block">&lt;img src="card-search.jpg" alt="내게 맞는 카드 찾기. 질문과 키워드 검색을 통해 라이프스타일에 꼭 맞는 카드를 찾아보세요."/&gt;</div>
+                        </div>
+
+                        <h4>1.1.2 의미 없는 이미지 처리</h4>
+                        
+                        <p><strong>검사항목:</strong> 불릿이나 배경이미지 등 장식용 이미지는 빈 alt 제공</p>
+
+                        <div class="example wrong">
+                            <p class="example-label">❌ 잘못된 사례 - 장식용 이미지에 alt 속성을 제공하지 않음</p>
+                            <div class="code-block">&lt;img src="bullet.png"&gt; 공지사항</div>
+                        </div>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 장식용 이미지의 alt는 빈 값으로 제공</p>
+                            <div class="code-block">&lt;img src="bullet.png" alt=""&gt; 공지사항</div>
+                        </div>
+
+                        <h4>1.1.3 복잡한 이미지의 대체 텍스트</h4>
+
+                        <p><strong>검사항목:</strong> 차트, 다이어그램 등 복잡한 이미지는 상세 설명 제공</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 복잡한 이미지는 숨김 텍스트로 상세 정보 제공</p>
+                            <div class="code-block">&lt;img src="organization.jpg" alt="조직도"/&gt;
+&lt;div class="sr-only"&gt;
+  &lt;h2&gt;조직 구조&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;대표이사 - 이진병&lt;/li&gt;
+    &lt;li&gt;컨설팅팀 - 웹 접근성/호환성 진단&lt;/li&gt;
+    &lt;li&gt;개발팀 - 웹사이트 구축&lt;/li&gt;
+    &lt;li&gt;경영지원팀 - 영업 및 경영 지원&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</div>
+                            <p style="margin-top: 0.5rem; color: var(--gray-700); font-size: 0.875rem;">⚠️ 주의: visibility:hidden이나 display:none은 스크린리더에서 인식되지 않을 수 있으므로 .sr-only 클래스 사용 권장</p>
+                        </div>
+
+                        <h4>1.1.4 QR코드 등 시각 정보의 대체 수단</h4>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - QR코드 이미지에 링크 또는 주소 정보 제공</p>
+                            <div class="code-block">&lt;a href="https://websoul.co.kr/mobile"&gt;
+  &lt;img src="qr-code.jpg" alt="웹소울랩 모바일 페이지 QR코드"/&gt;
+&lt;/a&gt;
+&lt;p&gt;주소: https://websoul.co.kr/mobile&lt;/p&gt;</div>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item" id="multimedia">
+                        <h3>1.2 멀티미디어 대체 수단</h3>
+                        <p><strong>동영상, 음성 등 멀티미디어 콘텐츠에는 자막, 대본 등의 대체 수단을 제공해야 합니다.</strong></p>
+
+                        <h4>1.2.1 자막 제공</h4>
+                        <p>영상 콘텐츠에는 자막을 제공하여 청각 장애인도 내용을 이해할 수 있도록 합니다.</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 비디오에 자막 트랙 제공</p>
+                            <div class="code-block">&lt;video controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;track kind="captions" src="captions-ko.vtt" srclang="ko" label="한국어 자막"&gt;
+&lt;/video&gt;</div>
+                        </div>
+
+                        <h4>1.2.2 음성 해설</h4>
+                        <p>영상의 시각적 정보를 음성으로 설명하는 해설을 제공합니다.</p>
+                    </div>
+
+                    <div class="guideline-item" id="clarity">
+                        <h3>1.3 명료성</h3>
+                        <p><strong>콘텐츠는 명확하게 구분되고 인식되어야 합니다.</strong></p>
+
+                        <h4>1.3.1 색에 무관한 인식</h4>
+                        <p>색상만으로 정보를 전달하지 않고, 모양이나 텍스트로도 구분 가능해야 합니다.</p>
+
+                        <div class="example wrong">
+                            <p class="example-label">❌ 잘못된 사례 - 색상만으로 정보 전달</p>
+                            <div class="code-block">&lt;p style="color: red;"&gt;필수입력항목&lt;/p&gt;</div>
+                        </div>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 색상 + 텍스트/기호로 정보 전달</p>
+                            <div class="code-block">&lt;p style="color: red;"&gt;&lt;span aria-label="필수"&gt;*&lt;/span&gt; 필수입력항목&lt;/p&gt;</div>
+                        </div>
+
+                        <h4>1.3.2 명확한 지시사항</h4>
+                        <p>"오른쪽 버튼", "빨간색 버튼" 등 모양이나 색상만으로 지시하지 않습니다.</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례</p>
+                            <div class="code-block">&lt;p&gt;다음 단계로 이동하려면 '확인' 버튼을 클릭하세요.&lt;/p&gt;</div>
+                        </div>
+
+                        <h4>1.3.3 텍스트 콘텐츠의 명도 대비</h4>
+                        <p>텍스트와 배경 간의 명도 대비는 최소 4.5:1 이상이어야 합니다.</p>
+                    </div>
+                </div>
+
+                <aside class="side-nav">
+                    <h4>바로가기</h4>
+                    <ul>
+                        <li><a href="#alternative-text">1.1 대체 텍스트 제공</a></li>
+                        <li><a href="#multimedia">1.2 멀티미디어 대체 수단</a></li>
+                        <li><a href="#clarity">1.3 명료성</a></li>
+                    </ul>
+                    <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--gray-200);">
+                    <h4>다른 원칙</h4>
+                    <ul>
+                        <li><a href="guide-operable.html">2. 운용의 용이성</a></li>
+                        <li><a href="guide-understandable.html">3. 이해의 용이성</a></li>
+                        <li><a href="guide-robust.html">4. 견고성</a></li>
+                    </ul>
+                </aside>
+            </div>
+
+                    <div class="cta-section" style="margin-top: 3rem;">
+                        <h2>웹 접근성 컨설팅 문의</h2>
+                        <p>전문가가 귀사의 웹사이트를 KWCAG 2.2 기준으로 진단하고 개선 방안을 제시합니다.</p>
+                        <div class="cta-buttons">
+                            <a href="../consulting/accessibility.html" class="btn btn-primary">컨설팅 문의</a>
+                            <a href="practical-guide.html" class="btn btn-outline">실무 가이드 홈</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Component Loader (must load before main.js) -->
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

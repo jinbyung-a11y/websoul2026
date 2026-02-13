@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - 웹 호환성(웹 표준) 컨설팅">
+    <title>웹 호환성(웹 표준) - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wa-primary-blue: #2563eb;
+            --wa-shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --wa-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+        .wa-premium-body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        .main-content.intro .content-section--lead { margin-bottom: var(--spacing-sm, 1rem); }
+        .content-section--lead + .section-wrapper { padding-top: var(--spacing-sm, 1rem); }
+        .section-wrapper { padding: var(--spacing-lg, 2rem) 0; position: relative; }
+        .section-header { text-align: center; margin-bottom: var(--spacing-md, 1.5rem); }
+        .section-header h2 {
+            font-size: var(--font-size-3xl, 1.875rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+        }
+        .section-header p { color: var(--gray-600); font-size: var(--font-size-xl, 1.25rem); }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+        .bento-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--spacing-lg, 2rem);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--wa-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wa-primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .bento-item h3 {
+            font-size: var(--font-size-xl, 1.25rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            color: var(--gray-900);
+        }
+        .bento-item p { color: var(--gray-600); line-height: 1.6; font-size: var(--font-size-sm, 0.875rem); }
+        .process-step-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .process-step-card:hover { box-shadow: var(--wa-shadow-hover); }
+        .process-step-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 14px;
+            color: var(--wa-primary-blue);
+        }
+        .process-step-icon svg { width: 28px; height: 28px; }
+        .process-step-content { flex: 1; min-width: 0; }
+        .process-step-content h3 { font-size: 1.125rem; font-weight: 700; margin: 0 0 0.375rem 0; color: var(--gray-900); }
+        .process-step-content p { margin: 0; color: var(--gray-600); font-size: 0.8125rem; line-height: 1.5; }
+        .process-step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        @media (max-width: 768px) { .process-step-grid { grid-template-columns: 1fr; } }
+        .table-responsive { overflow-x: auto; margin: 1.5rem 0; }
+        .diagnosis-table { width: 100%; border-collapse: collapse; background: var(--white); box-shadow: var(--wa-shadow-soft); border-radius: 8px; overflow: hidden; }
+        .diagnosis-table th, .diagnosis-table td { padding: 0.875rem 1.25rem; text-align: left; border-bottom: 1px solid var(--gray-200, #e5e7eb); }
+        .diagnosis-table th { background: var(--gray-100, #f3f4f6); font-weight: 600; color: var(--gray-900); }
+        .diagnosis-table tbody tr:hover { background: var(--gray-50, #f9fafb); }
+        .diagnosis-table .section-row td { background: var(--gray-100, #f3f4f6); font-weight: 600; color: var(--gray-800); }
+        .diagnosis-table td:first-child { font-weight: 500; color: var(--gray-800); white-space: nowrap; width: 1%; }
+        @media (max-width: 768px) { .diagnosis-table td:first-child { white-space: normal; } }
+    </style>
+</head>
+<body class="wa-premium-body">
+    <div id="header-placeholder"></div>
+
+    <section class="page-header page-header--consulting">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">컨설팅 및 구축</a><span>/</span><span>웹 호환성(웹 표준)</span></div>
+            <h1 class="page-title">웹 호환성 (웹 표준)</h1>
+            <p class="page-subtitle">W3C 웹 표준 준수 및 크로스 브라우징 호환성</p>
+        </div>
+    </section>
+
+    <div class="page-container">
+        <div id="submenu-placeholder"></div>
+        <main class="main-content intro">
+            <section class="page-content" id="main-content">
+                <div class="container">
+
+                    <div class="content-section content-section--lead">
+                        <h2>웹 호환성이란?</h2>
+                        <p class="lead">웹 호환성은 다양한 웹 브라우저와 디바이스에서 일관된 사용자 경험을 제공하는 것입니다.</p>
+                        <p>W3C(World Wide Web Consortium) 웹 표준을 준수하여 모든 사용자가 동일한 정보와 서비스에 접근할 수 있도록 보장합니다. HTML5, CSS3, DOM, ECMA-262 등 기술표준을 적용하고, 기능·화면표시 호환성을 확보합니다.</p>
+                    </div>
+
+                    <div class="section-wrapper">
+                        <div class="section-header">
+                            <h2>웹 호환성 컨설팅 특징</h2>
+                            <p>웹 표준 준수와 크로스 브라우징으로 다양한 환경에서 동등한 경험을 제공합니다.</p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item">
+                                <div class="bento-icon">📝</div>
+                                <h3>HTML 표준 준수</h3>
+                                <p>HTML5 표준 문법 준수 여부를 검증합니다. (X)HTML 기술표준을 준수하고 최신 웹표준을 적용합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🎨</div>
+                                <h3>CSS 표준 준수</h3>
+                                <p>CSS3 표준 문법 및 속성 사용을 검증합니다. 시각적 속성(크기, 색채, 배치, 정렬, 여백 등)이 기술표준을 준수하는지 확인합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🌐</div>
+                                <h3>크로스 브라우징</h3>
+                                <p>Chrome, Edge, Safari, Firefox 등 다양한 브라우저에서 동등하게 동작하고 표현되는지 호환성 테스트를 수행합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">📱</div>
+                                <h3>모바일 웹 호환성</h3>
+                                <p>다양한 모바일 운영체제에서의 기능·화면표시 호환성을 확보합니다. PC 기준이 아닌 모바일용 화면으로 표시되도록 검증합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-wrapper" style="background: var(--gray-100);">
+                        <div class="section-header">
+                            <h2>웹 호환성 진단 프로세스</h2>
+                            <p>웹 표준·웹 호환성·모바일 웹 호환성 확보를 위한 진단을 수행합니다.</p>
+                        </div>
+                        <div class="process-container" style="max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg);">
+                            <div class="standards-grid process-step-grid">
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>웹 표준 준수</h3>
+                                        <p>(X)HTML·CSS·문자부호화·제어기능 표준 및 비표준 기술 제거</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>웹 호환성 확보</h3>
+                                        <p>기능 호환성 및 화면표시 호환성 검증</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>모바일 웹 호환성</h3>
+                                        <p>모바일 OS별 기능·화면표시 호환성 확보</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>검증 및 개선</h3>
+                                        <p>진단 결과 기반 개선안 수립 및 검증</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-header" style="margin-top: 2.5rem;">
+                            <h2>진단 지표</h2>
+                            <p>웹 표준 준수, 웹 호환성 확보, 모바일 웹 호환성 확보 항목을 진단합니다.</p>
+                        </div>
+                        <div class="process-container" style="max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg);">
+                            <div class="table-responsive">
+                                <table class="diagnosis-table">
+                                    <thead>
+                                        <tr>
+                                            <th>진단지표</th>
+                                            <th>진단 내용</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="section-row">
+                                            <td colspan="2"><strong>1. 웹 표준 준수</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1.1 (X)HTML 표준 준수</td>
+                                            <td>웹페이지의 문법은 기술표준((X)HTML)을 준수하여야 함<br>최신 웹표준(HTML5)을 적용하여야 함</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1.2 CSS 표준 준수</td>
+                                            <td>웹페이지의 시각적 속성(크기, 색채, 배치, 정렬 및 여백 등)은 기술표준(CSS)을 준수하여야 함</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1.3 문자(한글) 부호화 준수</td>
+                                            <td>웹 페이지에서 문자를 부호화하는 방식을 UTF-8로 적용하여야 함</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1.4 제어 기능의 표준 준수</td>
+                                            <td>웹 페이지의 동적으로 구성하고 제어하는 기술표준(DOM, ECMA-262 등)을 적용하여야 함</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1.5 비표준 기술 제거</td>
+                                            <td>공공 웹사이트 플러그인 제거 가이드라인(행정안전부 배포)을 준수하여야 함</td>
+                                        </tr>
+                                        <tr class="section-row">
+                                            <td colspan="2"><strong>2. 웹 호환성 확보</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.1 기능 호환성 확보</td>
+                                            <td>웹페이지를 동적으로 구성하고 제어하는 기능은 모든 브라우저에서 동등하게 동작하여야 함</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.2 화면표시 호환성 확보</td>
+                                            <td>웹페이지가 다양한 브라우저에서 동등하게 표현되어야 함</td>
+                                        </tr>
+                                        <tr class="section-row">
+                                            <td colspan="2"><strong>3. 모바일 웹 호환성 확보</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.1 기능 호환성 확보</td>
+                                            <td>웹페이지를 동적으로 구성하고 제어하는 기능은 모든 모바일 운영체제에서 동등하게 동작하여야 함</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.2 화면표시 호환성 확보</td>
+                                            <td>모바일 기기에서 웹페이지는 PC화면 기준이 아닌 모바일용 화면으로 표시되어야 함</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

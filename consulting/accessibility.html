@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - 웹 접근성 컨설팅">
+    <title>웹 접근성 컨설팅 - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wa-primary-blue: #2563eb;
+            --wa-shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --wa-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+        .wa-premium-body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        .main-content.intro .content-section--lead { margin-bottom: var(--spacing-sm, 1rem); }
+        .content-section--lead + .section-wrapper { padding-top: var(--spacing-sm, 1rem); }
+        .section-wrapper { padding: var(--spacing-lg, 2rem) 0; position: relative; }
+        .section-header { text-align: center; margin-bottom: var(--spacing-md, 1.5rem); }
+        .section-header h2 {
+            font-size: var(--font-size-3xl, 1.875rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+        }
+        .section-header p { color: var(--gray-600); font-size: var(--font-size-xl, 1.25rem); }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+        .bento-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--spacing-lg, 2rem);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--wa-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wa-primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .bento-item h3 {
+            font-size: var(--font-size-xl, 1.25rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            color: var(--gray-900);
+        }
+        .bento-item p { color: var(--gray-600); line-height: 1.6; font-size: var(--font-size-sm, 0.875rem); }
+        .process-img-wrap {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg, 2rem);
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        .process-img-wrap img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--wa-shadow-soft);
+        }
+        .wa-download-section { text-align: center; background: var(--white); }
+        .wa-download-section .btn-download {
+            display: inline-block;
+            background: var(--wa-primary-blue);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+            transition: transform 0.2s;
+        }
+        .wa-download-section .btn-download:hover { transform: translateY(-2px); }
+        .wa-download-section.section-wrapper { padding: var(--spacing-xl, 3rem) 0; }
+        .content-section--download .section-subtitle { margin-bottom: var(--spacing-md, 1.5rem); }
+        .process-step-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .process-step-card:hover { box-shadow: var(--wa-shadow-hover); }
+        .process-step-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 14px;
+            color: var(--wa-primary-blue);
+        }
+        .process-step-icon svg { width: 28px; height: 28px; }
+        .process-step-content { flex: 1; min-width: 0; }
+        .process-step-content h3 { font-size: 1.125rem; font-weight: 700; margin: 0 0 0.375rem 0; color: var(--gray-900); }
+        .process-step-content p { margin: 0; color: var(--gray-600); font-size: 0.8125rem; line-height: 1.5; }
+        .process-step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        @media (max-width: 768px) { .process-step-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="wa-premium-body">
+    <div id="header-placeholder"></div>
+
+    <section class="page-header page-header--consulting">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">컨설팅 및 구축</a><span>/</span><span>웹 접근성 컨설팅</span></div>
+            <h1 class="page-title">웹 접근성 컨설팅</h1>
+            <p class="page-subtitle">KWCAG 2.2 기준의 체계적인 웹 접근성 진단, 개선, WA 인증 획득 지원</p>
+        </div>
+    </section>
+
+    <div class="page-container">
+        <div id="submenu-placeholder"></div>
+        <main class="main-content intro">
+            <section class="page-content" id="main-content">
+                <div class="container">
+
+                    <div class="content-section content-section--lead">
+                        <h2>웹 접근성 컨설팅이란?</h2>
+                        <p class="lead">웹소울랩은 프로젝트 경험이 풍부한 전문 컨설턴트 인력을 바탕으로 웹소울랩만의 특화된 웹 접근성 9단계 방법론을 수행합니다.</p>
+                        <p>자동진단 솔루션을 이용하여 보다 전문적이고 정밀한 웹 접근성 컨설팅을 수행하며, 분석·설계·개발·테스트 및 이행 단계 전 과정에서 작업자 교육, 가이드/체크리스트 제공, 결과물 진단 보완, 이행 후 운영진 교육 및 경영진 보고까지 전 부문에 걸친 컨설팅 서비스를 제공합니다.</p>
+                    </div>
+
+                    <div class="section-wrapper">
+                        <div class="section-header">
+                            <h2>웹 접근성 컨설팅 특징</h2>
+                            <p>WA마크 획득 경험과 9단계 방법론으로 정밀한 컨설팅을 제공합니다.</p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item">
+                                <div class="bento-icon">🏆</div>
+                                <h3>다수의 WA 품질인증마크 획득 경험</h3>
+                                <p>웹 접근성 컨설팅 9단계 방법론을 적용하여 다수의 민간/공공 웹 사이트의 웹 접근성 품질인증마크(WA마크) 획득 경험이 축적되어 있습니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🔧</div>
+                                <h3>웹 접근성/표준 자동평가 툴 진단</h3>
+                                <p>자사가 보유하고 있는 자동진단 솔루션을 활용하여 프로젝트 진행 시 웹 접근성 및 웹 표준 준수 여부를 진단합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">📋</div>
+                                <h3>웹 접근성 컨설팅 9단계 방법론</h3>
+                                <p>WCAG-em 진단방법론을 한국형으로 맞춘 방법론으로 세밀하고 구체적인 진단·컨설팅을 수행합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">👥</div>
+                                <h3>다수의 프로젝트 경험이 풍부한 전문 컨설턴트</h3>
+                                <p>민간/공공, 금융, 쇼핑, 그룹사 등의 다양한 웹 접근성 컨설팅 및 다수의 품질 마크 획득 경험이 있는 전문가로 구성되어 있습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-wrapper" style="background: var(--gray-100);">
+                        <div class="section-header">
+                            <h2>웹 접근성 컨설팅 프로세스</h2>
+                            <p>웹사이트 사전분석·교육·개라 산출물 검수·최종 파일 및 이행·인증마크 전 과정 컨설팅을 제공합니다.</p>
+                        </div>
+                        <div class="process-img-wrap">
+                            <img src="../images/consulting/accessibility/web-accessibility-consulting-process.png" alt="웹 접근성 컨설팅 프로세스: 분석 → 설계 → 개발 → 테스트 및 이행 → 인증마크 → 완료" />
+                        </div>
+                        <div class="process-container" style="max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg);">
+                            <div class="standards-grid process-step-grid">
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>사전분석</h3>
+                                        <p>웹사이트 AS-IS 분석 및 진단 방향 수립</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>설계</h3>
+                                        <p>웹접근성 지침별 가이드·체크리스트 제공, 작업자 교육</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>개발산출물 검수</h3>
+                                        <p>기획/디자인/HTML/개발 산출결과물 진단 보완 및 개선 지원</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>최종 파일 검수 </h3>
+                                        <p>최종파일 웹 접근성 수준 검증 및 이행 점검</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>웹사이트 품질 인증마크</h3>
+                                        <p>WA 품질인증마크 신청 및 웹접근성 품질마크 획득</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>완료</h3>
+                                        <p>실무 운영진 교육 및 가이드 라인 제공</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section-wrapper wa-download-section">
+                <div class="container">
+                    <div class="content-section content-section--download">
+                        <h2>한국형 웹콘텐츠 접근성 지침 2.2 다운로드</h2>
+                        <p class="section-subtitle">KWCAG 2.2 지침을 다운로드하여 참고하실 수 있습니다.</p>
+                        <a href="../images/consulting/accessibility/한국형웹콘텐츠접근성지침2.2.pdf" download class="btn-download" target="_blank" rel="noopener noreferrer">한국형 웹콘텐츠 접근성 지침 2.2 다운로드 (PDF)</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

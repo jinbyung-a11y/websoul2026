@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - AI디지털 교과서 컨설팅">
+    <title>AI디지털 교과서 컨설팅 - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wa-primary-blue: #2563eb;
+            --wa-shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --wa-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+        .wa-premium-body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        .main-content.intro .content-section--lead { margin-bottom: var(--spacing-sm, 1rem); }
+        .content-section--lead + .section-wrapper { padding-top: var(--spacing-sm, 1rem); }
+        .section-wrapper { padding: var(--spacing-lg, 2rem) 0; position: relative; }
+        .section-header { text-align: center; margin-bottom: var(--spacing-md, 1.5rem); }
+        .section-header h2 {
+            font-size: var(--font-size-3xl, 1.875rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+        }
+        .section-header p { color: var(--gray-600); font-size: var(--font-size-xl, 1.25rem); }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+        .bento-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--spacing-lg, 2rem);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--wa-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wa-primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .bento-item h3 {
+            font-size: var(--font-size-xl, 1.25rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            color: var(--gray-900);
+        }
+        .bento-item p { color: var(--gray-600); line-height: 1.6; font-size: var(--font-size-sm, 0.875rem); }
+        .process-img-wrap {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg, 2rem);
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        .process-img-wrap img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--wa-shadow-soft);
+        }
+        .wa-download-section { text-align: center; background: var(--white); }
+        .wa-download-section .btn-download {
+            display: inline-block;
+            background: var(--wa-primary-blue);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+            transition: transform 0.2s;
+        }
+        .wa-download-section .btn-download:hover { transform: translateY(-2px); }
+        .wa-download-section.section-wrapper { padding: var(--spacing-xl, 3rem) 0; }
+        .content-section--download .section-subtitle { margin-bottom: var(--spacing-md, 1.5rem); }
+        .process-step-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .process-step-card:hover { box-shadow: var(--wa-shadow-hover); }
+        .process-step-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 14px;
+            color: var(--wa-primary-blue);
+        }
+        .process-step-icon svg { width: 28px; height: 28px; }
+        .process-step-content { flex: 1; min-width: 0; }
+        .process-step-content h3 { font-size: 1.125rem; font-weight: 700; margin: 0 0 0.375rem 0; color: var(--gray-900); }
+        .process-step-content p { margin: 0; color: var(--gray-600); font-size: 0.8125rem; line-height: 1.5; }
+        .process-step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        @media (max-width: 768px) { .process-step-grid { grid-template-columns: 1fr; } }
+        .importance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .importance-card { padding: 1.5rem; background: var(--white); border-radius: 16px; box-shadow: var(--wa-shadow-soft); text-align: center; }
+        .importance-icon { font-size: 2rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body class="wa-premium-body">
+    <div id="header-placeholder"></div>
+
+    <section class="page-header page-header--consulting">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">컨설팅 및 구축</a><span>/</span><span>AI디지털 교과서 컨설팅</span></div>
+            <h1 class="page-title">AI디지털 교과서 컨설팅</h1>
+            <p class="page-subtitle">AI 기반 디지털 교과서의 접근성, 사용성, 품질 검증 및 개선 컨설팅</p>
+        </div>
+    </section>
+
+    <div class="page-container">
+        <div id="submenu-placeholder"></div>
+        <main class="main-content intro">
+            <section class="page-content" id="main-content">
+                <div class="container">
+
+                    <div class="content-section content-section--lead">
+                        <h2>AI디지털 교과서 컨설팅이란?</h2>
+                        <p class="lead">AI 기술이 적용된 디지털 교과서의 품질을 진단하고, 접근성·사용성·호환성을 개선하는 전문 컨설팅 서비스입니다.</p>
+                        <p>스마트교육과 에듀테크 확산으로 AI 기반 디지털 교과서가 보편화되고 있습니다. 웹소울랩은 교육부 디지털 교과서 품질 기준과 웹 접근성 지침(KWCAG)을 바탕으로 AI디지털 교과서의 전 과정 품질 컨설팅을 제공합니다.</p>
+                    </div>
+
+                    <div class="section-wrapper">
+                        <div class="section-header">
+                            <h2>AI디지털 교과서 컨설팅 특징</h2>
+                            <p>교육 분야 전문성과 UDL·접근성 통합으로 정밀한 컨설팅을 제공합니다.</p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item">
+                                <div class="bento-icon">🔍</div>
+                                <h3>현황 분석</h3>
+                                <p>AI디지털 교과서의 현재 품질 수준을 진단하고 개선 방향을 수립합니다. 접근성 자동·수동 진단, 사용성 현황 분석, 교육부 품질기준 검토, AI 기능 적합성 평가를 수행합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">📐</div>
+                                <h3>설계 컨설팅</h3>
+                                <p>모든 학습자가 이용할 수 있는 디지털 교과서 구조와 인터페이스를 설계합니다. 접근성 설계 가이드, 멀티미디어 대체 수단, 키보드·스크린리더 지원, AI 음성·채팅 접근성을 설계합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🛠️</div>
+                                <h3>개발 지원</h3>
+                                <p>개발 단계에서 접근성 및 품질 요구사항을 반영할 수 있도록 지원합니다. 체크리스트·가이드 제공, 개발자 교육, 중간 결과물 검토, 개선 권고사항 적용을 지원합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">✅</div>
+                                <h3>검증 및 인증</h3>
+                                <p>최종 결과물의 품질을 검증하고 인증 획득을 지원합니다. 종합 품질 검증, 실사용자 테스트, WA 인증마크 지원, 교육부 품질인증 지원을 수행합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-wrapper" style="background: var(--gray-100);">
+                        <div class="section-header">
+                            <h2>AI디지털 교과서 컨설팅 프로세스</h2>
+                            <p>현황 분석·설계·개발·검증 및 인증 전 과정 컨설팅을 제공합니다.</p>
+                        </div>
+                        <div class="process-container" style="max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg);">
+                            <div class="standards-grid process-step-grid">
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>현황 분석</h3>
+                                        <p>접근성·사용성 진단 및 교육부 품질기준 검토</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>설계</h3>
+                                        <p>UDL 기반 접근성 설계 및 AI 기능 접근성 설계</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>개발 지원</h3>
+                                        <p>체크리스트·가이드 제공 및 중간 결과물 검토</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>검증 및 인증</h3>
+                                        <p>종합 품질 검증 및 WA·교육부 인증 지원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-header" style="margin-top: 2.5rem;">
+                            <h2>컨설팅 범위</h2>
+                            <p>웹 기반 교과서, AI 기능, 멀티미디어, 조작·호환성 등 전 분야를 검토합니다.</p>
+                        </div>
+                        <div class="process-container" style="max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg);">
+                            <div class="importance-grid">
+                                <div class="importance-card">
+                                    <div class="importance-icon">📱</div>
+                                    <h3>웹 기반 디지털 교과서</h3>
+                                    <p>HTML5, 반응형, PWA 기반 교과서</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">🤖</div>
+                                    <h3>AI 기능 접근성</h3>
+                                    <p>AI 음성·챗봇·추천 접근성</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">📖</div>
+                                    <h3>멀티미디어 콘텐츠</h3>
+                                    <p>자막, 대체 텍스트, 오디오 설명</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">⌨️</div>
+                                    <h3>조작 및 네비게이션</h3>
+                                    <p>키보드, 스크린리더, 포커스 관리</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">📋</div>
+                                    <h3>교육부 품질기준</h3>
+                                    <p>품질관리 가이드, 검수 체크리스트</p>
+                                </div>
+                                <div class="importance-card">
+                                    <div class="importance-icon">🔗</div>
+                                    <h3>호환성 검증</h3>
+                                    <p>크로스 브라우저, 모바일·태블릿</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="process-img-wrap" style="margin-top: 2.5rem;">
+                            <img src="../images/consulting/ai-digital-textbook/ai-digital-textbook1.png" alt="AI디지털 교과서 접근성 컨설팅" />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section-wrapper wa-download-section">
+                <div class="container">
+                    <div class="content-section content-section--download">
+                        <h2>AI 디지털교과서의 보편적 학습 설계(UDL) 및 접근성 지침 적용 사례 탐색</h2>
+                        <p class="section-subtitle">UDL 및 접근성 지침 적용 사례를 다운로드하여 참고하실 수 있습니다.</p>
+                        <a href="../images/consulting/ai-digital-textbook/AI 디지털교과서의 보편적 학습 설계(UDL) 및 접근성 지침 적용 사례 탐색.pdf" download class="btn-download" target="_blank" rel="noopener noreferrer">AI 디지털교과서 UDL 및 접근성 지침 적용 사례 다운로드 (PDF)</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

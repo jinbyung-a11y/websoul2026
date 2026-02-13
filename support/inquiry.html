@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - 프로젝트/솔루션 문의">
+    <title>프로젝트/솔루션 문의 - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <section class="page-header page-header--support">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">온라인 지원</a><span>/</span><span>프로젝트/솔루션 문의</span></div>
+            <h1 class="page-title">프로젝트/솔루션 문의</h1>
+            <p class="page-subtitle">웹소울랩의 서비스에 대해 문의해주세요</p>
+        </div>
+    </section>
+
+    <div class="page-container">
+        <!-- Submenu Component Placeholder -->
+        <div id="submenu-placeholder"></div>
+        <main class="main-content">
+    <section class="page-content">
+        <div class="container">
+            <div class="content-section">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <h2>문의 정보</h2>
+                    
+                    <form id="contactForm" class="contact-form" style="margin-top: 2rem;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">회사명 / 기관명 <span style="color: var(--error-color);">*</span></label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">담당자명 <span style="color: var(--error-color);">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">이메일 <span style="color: var(--error-color);">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">연락처 <span style="color: var(--error-color);">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">문의 서비스 <span style="color: var(--error-color);">*</span></label>
+                            <select id="service" name="service" required>
+                                <option value="">선택해주세요</option>
+                                <option value="wicc">웹 사이트 통합품질 컨설팅 (WICC)</option>
+                                <option value="accessibility">웹 접근성 컨설팅</option>
+                                <option value="ai-digital-textbook">AI디지털 교과서 컨설팅</option>
+                                <option value="compatibility">웹 호환성 컨설팅</option>
+                                <option value="construction">웹사이트 구축 및 운영</option>
+                                <option value="solution">솔루션 제품</option>
+                                <option value="other">기타</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website">웹사이트 URL</label>
+                            <input type="url" id="website" name="website" placeholder="https://">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">문의 내용 <span style="color: var(--error-color);">*</span></label>
+                            <textarea id="message" name="message" rows="8" required placeholder="문의하실 내용을 상세히 작성해주세요."></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">문의하기</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="content-section bg-light">
+                <h2>기타 연락 방법</h2>
+                <div class="importance-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="importance-card">
+                        <div class="importance-icon">📞</div>
+                        <h3>대표전화</h3>
+                        <p>070-8622-6032</p>
+                    </div>
+                    <div class="importance-card">
+                        <div class="importance-icon">📠</div>
+                        <h3>팩스</h3>
+                        <p>070-8224-5089</p>
+                    </div>
+                    <div class="importance-card">
+                        <div class="importance-icon">✉️</div>
+                        <h3>이메일</h3>
+                        <p>support@websoul.co.kr</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+    </div>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Component Loader (must load before main.js) -->
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - 원칙 3. 이해의 용이성">
+    <title>원칙 3. 이해의 용이성 - 웹소울랩</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .guide-content { max-width: 900px; margin: 0 auto; }
+        .guideline-item { background: white; padding: 2rem; border-radius: var(--radius-md); margin-bottom: 2rem; box-shadow: var(--shadow-sm); }
+        .guideline-item h3 { color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem; }
+        .guideline-item h4 { color: var(--gray-800); margin: 1.5rem 0 1rem; }
+        .example { background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0; border-left: 4px solid var(--gray-300); }
+        .example.correct { border-left-color: #059669; background: #f0fdf4; }
+        .example.wrong { border-left-color: #dc2626; background: #fef2f2; }
+        .example-label { font-weight: 700; margin-bottom: 0.5rem; }
+        .example.correct .example-label { color: #059669; }
+        .example.wrong .example-label { color: #dc2626; }
+        .code-block { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: var(--radius-sm); overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.6; }
+        .side-nav { position: sticky; top: 100px; background: white; padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        .side-nav h4 { margin-bottom: 1rem; color: var(--primary-color); }
+        .side-nav ul { list-style: none; padding: 0; }
+        .side-nav li { padding: 0.5rem 0; }
+        .side-nav a { color: var(--gray-700); text-decoration: none; transition: var(--transition-base); }
+        .side-nav a:hover { color: var(--primary-color); }
+        .two-column { display: grid; grid-template-columns: 1fr 250px; gap: 2rem; }
+        @media (max-width: 968px) { .two-column { grid-template-columns: 1fr; } .side-nav { position: static; } }
+    </style>
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="page-header page-header--accessibility">
+        <div class="container">
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="practical-guide.html">웹 접근성 실무 가이드</a><span>/</span><span>이해의 용이성</span></div>
+            <h1 class="page-title">원칙 3. 이해의 용이성 (Understandable)</h1>
+            <p class="page-subtitle">콘텐츠는 이해할 수 있어야 합니다</p>
+        </div>
+    </section>
+
+    <!-- Main Content with Side Navigation -->
+    <div class="page-container">
+        <!-- Submenu Component Placeholder -->
+        <div id="submenu-placeholder"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="page-content" id="main-content">
+                <div class="container">
+                    <div class="two-column">
+                <div class="guide-content">
+                    <div class="guideline-item" id="readable">
+                        <h3>3.1 가독성</h3>
+                        <p><strong>텍스트 콘텐츠는 읽고 이해할 수 있어야 합니다.</strong></p>
+
+                        <h4>3.1.1 기본 언어 표시</h4>
+                        <p>주로 사용하는 언어를 명시해야 합니다.</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - html 태그에 lang 속성 제공</p>
+                            <div class="code-block">&lt;html lang="ko"&gt;</div>
+                        </div>
+
+                        <h4>3.1.2 외국어 표기</h4>
+                        <p>본문에서 사용된 외국어는 언어를 명시해야 합니다.</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례</p>
+                            <div class="code-block">&lt;p&gt;웹 접근성을 의미하는 &lt;span lang="en"&gt;Web Accessibility&lt;/span&gt;&lt;/p&gt;</div>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item" id="predictable">
+                        <h3>3.2 예측 가능성</h3>
+                        <p><strong>웹 페이지의 기능은 예측 가능하도록 구성되어야 합니다.</strong></p>
+
+                        <h4>3.2.1 사용자 요구에 따른 실행</h4>
+                        <p>사용자가 의도하지 않은 기능이 실행되지 않도록 해야 합니다.</p>
+
+                        <div class="example wrong">
+                            <p class="example-label">❌ 잘못된 사례 - 포커스만으로 새 창 열림</p>
+                            <div class="code-block">&lt;a href="popup.html" onfocus="window.open(this.href)"&gt;링크&lt;/a&gt;</div>
+                        </div>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 클릭 시 새 창 열림 (사전 안내)</p>
+                            <div class="code-block">&lt;a href="popup.html" target="_blank"&gt;링크 (새 창으로 열림)&lt;/a&gt;</div>
+                        </div>
+
+                        <h4>3.2.2 콘텐츠의 선형 구조</h4>
+                        <p>콘텐츠는 논리적인 순서로 제공되어야 합니다.</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 논리적 heading 구조</p>
+                            <div class="code-block">&lt;h1&gt;웹 접근성 가이드&lt;/h1&gt;
+&lt;h2&gt;1. 인식의 용이성&lt;/h2&gt;
+&lt;h3&gt;1.1 대체 텍스트&lt;/h3&gt;
+&lt;h3&gt;1.2 멀티미디어&lt;/h3&gt;
+&lt;h2&gt;2. 운용의 용이성&lt;/h2&gt;</div>
+                        </div>
+
+                        <h4>3.2.3 일관성 있는 네비게이션</h4>
+                        <p>웹 페이지 간 일관된 메뉴 위치와 순서를 유지해야 합니다.</p>
+                    </div>
+
+                    <div class="guideline-item" id="input-assistance">
+                        <h3>3.3 입력 도움</h3>
+                        <p><strong>사용자 입력 시 오류를 방지하거나 정정할 수 있도록 해야 합니다.</strong></p>
+
+                        <h4>3.3.1 오류 정정</h4>
+                        <p>입력 오류 발생 시 오류를 정정할 수 있는 방법을 제공해야 합니다.</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 오류 메시지와 정정 방법 제공</p>
+                            <div class="code-block">&lt;label for="email"&gt;이메일 *&lt;/label&gt;
+&lt;input type="email" id="email" aria-describedby="email-error"&gt;
+&lt;p id="email-error" class="error"&gt;유효한 이메일 형식이 아닙니다. 예: user@example.com&lt;/p&gt;</div>
+                        </div>
+
+                        <h4>3.3.2 레이블 제공</h4>
+                        <p>모든 입력 서식에는 대응하는 레이블을 제공해야 합니다.</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례</p>
+                            <div class="code-block">&lt;label for="username"&gt;사용자명&lt;/label&gt;
+&lt;input type="text" id="username" name="username"&gt;</div>
+                        </div>
+
+                        <h4>3.3.3 오류 예방</h4>
+                        <p>법적, 금융 거래 등 중요한 입력은 제출 전 확인, 수정, 취소 기회를 제공해야 합니다.</p>
+
+                        <div class="example correct">
+                            <p class="example-label">✅ 올바른 사례 - 최종 확인 단계 제공</p>
+                            <div class="code-block">&lt;div class="confirmation"&gt;
+  &lt;h2&gt;결제 정보 확인&lt;/h2&gt;
+  &lt;p&gt;상품명: 웹 접근성 컨설팅&lt;/p&gt;
+  &lt;p&gt;금액: 5,000,000원&lt;/p&gt;
+  &lt;button&gt;수정하기&lt;/button&gt;
+  &lt;button&gt;결제하기&lt;/button&gt;
+&lt;/div&gt;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="side-nav">
+                    <h4>바로가기</h4>
+                    <ul>
+                        <li><a href="#readable">3.1 가독성</a></li>
+                        <li><a href="#predictable">3.2 예측 가능성</a></li>
+                        <li><a href="#input-assistance">3.3 입력 도움</a></li>
+                    </ul>
+                    <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--gray-200);">
+                    <h4>다른 원칙</h4>
+                    <ul>
+                        <li><a href="guide-perceivable.html">1. 인식의 용이성</a></li>
+                        <li><a href="guide-operable.html">2. 운용의 용이성</a></li>
+                        <li><a href="guide-robust.html">4. 견고성</a></li>
+                    </ul>
+                </aside>
+            </div>
+
+                    <div class="cta-section" style="margin-top: 3rem;">
+                        <h2>웹 접근성 컨설팅 문의</h2>
+                        <p>전문가가 귀사의 웹사이트를 KWCAG 2.2 기준으로 진단하고 개선 방안을 제시합니다.</p>
+                        <div class="cta-buttons">
+                            <a href="../consulting/accessibility.html" class="btn btn-primary">컨설팅 문의</a>
+                            <a href="practical-guide.html" class="btn btn-outline">실무 가이드 홈</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Component Loader (must load before main.js) -->
+    <script src="../js/component-loader.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

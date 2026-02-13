@@ -1,0 +1,253 @@
+<!-- Skip Navigation -->
+<a href="#main-content" class="sr-only">본문바로가기</a>
+
+<!-- Text Size & Display Settings Modal -->
+<div class="settings-modal" id="settingsModal">
+    <div class="settings-modal-content">
+        <div class="settings-header">
+            <h2>글자·화면 표시 설정</h2>
+            <button class="settings-close" id="settingsClose" aria-label="설정 닫기">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="settings-body">
+            <div class="settings-section">
+                <h3>글자 크기</h3>
+                <div class="text-size-options">
+                    <button class="text-size-btn" data-size="small">작게</button>
+                    <button class="text-size-btn active" data-size="normal">보통</button>
+                    <button class="text-size-btn" data-size="medium">조금 크게</button>
+                    <button class="text-size-btn" data-size="large">크게</button>
+                    <button class="text-size-btn" data-size="xlarge">가장 크게</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>화면 표시 모드</h3>
+                <div class="display-mode-options">
+                    <button class="mode-btn active" data-mode="light">
+                        <span class="mode-icon">☀️</span>
+                        <span>기본 (밝은 배경)</span>
+                    </button>
+                    <button class="mode-btn" data-mode="dark">
+                        <span class="mode-icon">🌙</span>
+                        <span>선명하게 (어두운 배경)</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button class="btn-reset" id="resetSettings">초기화</button>
+                <button class="btn-apply" id="applySettings">적용</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header & Navigation -->
+<header class="header" id="header">
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html" data-base-path>
+                    <h1>
+                        <img src="images/logo_wslab.png" data-base-path style="margin-left:25px" alt="websoul lab">
+                    </h1>
+                    <span class="brand-subtitle">웹에 영혼을 불어넣는 사람들</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu-wrapper">
+                <!-- Accessibility Tools (Above Nav Menu) -->
+                <div class="accessibility-tools-top">
+                    <button class="accessibility-btn" id="textSizeBtn" aria-label="글자·화면 설정">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
+                        </svg>
+                        <span>글자·화면</span>
+                    </button>
+                </div>
+                
+                <ul class="nav-menu" id="navMenu" role="navigation" aria-label="메인 메뉴">
+                    <li class="nav-item">
+                        <button class="nav-trigger" aria-expanded="false" aria-controls="menu-digital-inclusion">
+                            디지털 포용
+                            <svg class="nav-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown" id="menu-digital-inclusion">
+                            <div class="nav-dropdown-inner">
+                                <div class="container">
+                                    <div class="dropdown-content">
+                                        <h3 class="dropdown-title">디지털 포용</h3>
+                                        <ul class="dropdown-list">
+                                            <li><a href="digital-inclusion/law.html" data-base-path>디지털 포용법</a></li>
+                                            <li><a href="digital-inclusion/accessibility-enhancement.html" data-base-path>디지털 접근성 강화</a></li>
+                                            <li><a href="digital-inclusion/education.html" data-base-path>디지털 교육</a></li>
+                                            <li><a href="digital-inclusion/survey.html" data-base-path>디지털포용법 실태조사</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-trigger" aria-expanded="false" aria-controls="menu-accessibility">
+                            웹 접근성의 이해
+                            <svg class="nav-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown" id="menu-accessibility">
+                            <div class="nav-dropdown-inner">
+                                <div class="container">
+                                    <div class="dropdown-content">
+                                        <h3 class="dropdown-title">웹 접근성의 이해</h3>
+                                        <ul class="dropdown-list">
+                                            <li><a href="accessibility/overview.html" data-base-path>웹 접근성 개요</a></li>
+                                            <li><a href="accessibility/guidelines.html" data-base-path>웹 접근성 지침</a></li>
+                                            <li><a href="accessibility/practical-guide.html" data-base-path>웹 접근성 실무 가이드</a></li>
+                                            <li><a href="accessibility/certification.html" data-base-path>웹 접근성 인증마크</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-trigger" aria-expanded="false" aria-controls="menu-consulting">
+                            컨설팅 및 구축
+                            <svg class="nav-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown" id="menu-consulting">
+                            <div class="nav-dropdown-inner">
+                                <div class="container">
+                                    <div class="dropdown-content">
+                                        <h3 class="dropdown-title">컨설팅 및 구축</h3>
+                                        <ul class="dropdown-list">
+                                            <li><a href="consulting/integrated-quality.html" data-base-path>웹 사이트 통합품질 컨설팅</a></li>
+                                            <li><a href="consulting/accessibility.html" data-base-path>웹 접근성 컨설팅</a></li>
+                                            <li><a href="consulting/mobile-app-accessibility.html" data-base-path>모바일 앱 접근성 컨설팅</a></li>
+                                            <li><a href="consulting/openness.html" data-base-path>키오스크 접근성</a></li>
+                                            <li><a href="consulting/ai-digital-textbook.html" data-base-path>AI디지털 교과서 컨설팅</a></li>
+                                            <li><a href="consulting/compatibility.html" data-base-path>웹 호환성(웹 표준)</a></li>
+                                            <li><a href="consulting/policy-check.html" data-base-path>UI/UX 컨설팅</a></li>
+                                            <li><a href="consulting/usability-test.html" data-base-path>UI/UX 사용성 테스트</a></li>
+                                            <li><a href="consulting/construction.html" data-base-path>웹사이트 구축 및 운영</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-trigger" aria-expanded="false" aria-controls="menu-portfolio">
+                            포트폴리오
+                            <svg class="nav-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown" id="menu-portfolio">
+                            <div class="nav-dropdown-inner">
+                                <div class="container">
+                                    <div class="dropdown-content">
+                                        <h3 class="dropdown-title">포트폴리오</h3>
+                                        <ul class="dropdown-list">
+                                            <li><a href="portfolio/integrated-quality.html" data-base-path>웹사이트 통합품질 컨설팅</a></li>
+                                            <li><a href="portfolio/accessibility-consulting.html" data-base-path>웹 접근성/호환성 컨설팅</a></li>
+                                            <li><a href="portfolio/construction.html" data-base-path>웹사이트 구축 및 운영</a></li>
+                                            <li><a href="portfolio/publishing.html" data-base-path>웹사이트 퍼블리싱</a></li>
+                                            <li><a href="portfolio/uiux-consulting.html" data-base-path>UI/UX 컨설팅</a></li>
+                                            <li><a href="portfolio/uiux-usability.html" data-base-path>UI/UX 사용성 테스트</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-trigger" aria-expanded="false" aria-controls="menu-solution">
+                            솔루션 제품
+                            <svg class="nav-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown" id="menu-solution">
+                            <div class="nav-dropdown-inner">
+                                <div class="container">
+                                    <div class="dropdown-content">
+                                        <h3 class="dropdown-title">솔루션 제품</h3>
+                                        <ul class="dropdown-list">
+                                            <li><a href="solution/performance-monitoring.html" data-base-path>성능 모니터링 솔루션</a></li>
+                                            <li><a href="solution/link-validation.html" data-base-path>링크유효성 진단 솔루션</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-trigger" aria-expanded="false" aria-controls="menu-support">
+                            온라인 지원
+                            <svg class="nav-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown" id="menu-support">
+                            <div class="nav-dropdown-inner">
+                                <div class="container">
+                                    <div class="dropdown-content">
+                                        <h3 class="dropdown-title">온라인 지원</h3>
+                                        <ul class="dropdown-list">
+                                            <li><a href="support/news.html" data-base-path>뉴스 & 자료실</a></li>
+                                            <li><a href="support/consulting-inquiry.html" data-base-path>웹 접근성 자문</a></li>
+                                            <li><a href="support/inquiry.html" data-base-path>프로젝트/솔루션 문의</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-trigger" aria-expanded="false" aria-controls="menu-company">
+                            웹소울랩 소개
+                            <svg class="nav-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown" id="menu-company">
+                            <div class="nav-dropdown-inner">
+                                <div class="container">
+                                    <div class="dropdown-content">
+                                        <h3 class="dropdown-title">웹소울랩 소개</h3>
+                                        <ul class="dropdown-list">
+                                            <li><a href="about/intro.html" data-base-path>웹소울랩 소개</a></li>
+                                            <li><a href="about/certifications.html" data-base-path>인증현황</a></li>
+                                            <li><a href="about/organization.html" data-base-path>조직도</a></li>
+                                            <li><a href="about/location.html" data-base-path>오시는 길</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Backdrop for dropdown menu -->
+    <div class="nav-backdrop" id="navBackdrop"></div>
+</header>
