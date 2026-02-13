@@ -22,6 +22,9 @@
         .guide-subtab:hover { background: #eff6ff; color: #2563eb; }
         .guide-subtab.active { background: #2563eb; color: white; }
         .guide-content-area { padding: 2rem 1.5rem; }
+        .guide-bullet-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e5e7eb; }
+        .guide-bullet-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .guide-bullet-item img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.75rem; }
     </style>
 </head>
 <body>
@@ -62,6 +65,75 @@
                         <h2>2.1 입력장치 접근성</h2>
                         <p class="lead">모든 기능은 키보드만으로도 사용할 수 있어야 합니다.</p>
                         <p>키보드 사용 보장, 초점 이동과 표시, 조작 가능, 문자 단축키 등 다양한 입력장치로 콘텐츠에 접근할 수 있도록 합니다.</p>
+
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">2.1.1. 키보드 사용 보장</h3>
+                        <p style="margin-bottom: 1.5rem;">모든 기능은 키보드만으로도 사용할 수 있어야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 키보드로 접근 및 운용이 불가능한 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-1.jpg" alt="키보드 접근·운용 불가 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 키보드로 접근 및 운용이 불가능한 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-2.jpg" alt="키보드 접근·운용 불가 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 키보드로 접근 및 운용이 불가능한 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-3.jpg" alt="키보드 접근·운용 불가 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 키보드로 접근 및 운용이 불가능한 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-4.jpg" alt="키보드 접근·운용 불가 사례" data-base-path />
+                        </div>
+
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">2.1.2. 초점 이동과 표시</h3>
+                        <p style="margin-bottom: 1.5rem;">키보드에 의한 초점은 논리적으로 이동해야 하며, 시각적으로 구별할 수 있어야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 초점의 이동순서가 논리적이지 않으며 일관성이 없는 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-5.jpg" alt="초점 이동순서 비논리적 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 초점 또는 키보드의 위치를 나타내는 요소가 시각적으로 표시되지 않거나 명확하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-6.jpg" alt="초점 표시 미제공·불명확 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 초점 또는 키보드의 위치를 나타내는 요소가 시각적으로 표시되지 않거나 명확하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-7.jpg" alt="초점 표시 미제공·불명확 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 텍스트 등 운용할 수 없는 요소에 초점이 되는 경우</p>
+                            <p>• 화면에 보이지 않거나 의미 없는 개체에 초점이 이동되는 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-8.jpg" alt="비운용 요소에 초점 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 키보드 조작이 불가능한 상태가 되어 다음 사용자 입력 또는 컨트롤 등으로 초점을 이동할 수 없거나 이전 페이지로 초점을 이동할 수 없는 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-9.jpg" alt="비가시·무의미 개체에 초점 사례" data-base-path />
+                        </div>
+                        
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">2.1.3. 조작 가능</h3>
+                        <p style="margin-bottom: 1.5rem;">사용자 입력 및 콘트롤은 조작 가능하도록 제공되어야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 컨트롤의 크기가 대각선으로 6.0mm 이상 제공하지 않은 경우</p>
+                            <p>• 링크, 사용자 입력, 기타 컨트롤의 테두리 안쪽으로 1픽셀 이상의 여백을 제공하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-10.jpg" alt="컨트롤 크기 미준수 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-11.jpg" alt="컨트롤 크기 미준수 사례" data-base-path />
+                         </div>
+                       
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">2.1.4. 문자 단축키</h3>
+                        <p style="margin-bottom: 1.5rem;">문자 단축키는 오동작으로 인한 오류를 방지하여야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 단일 문자 단축키(예: 대/소문자, 구두점, 기호 등 글자키나 숫자키 또는 특수 문자키)를 제공하는 경우</p>
+                            <p>• 오류를 방지하기 위한 방법 등을 제공하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-12.jpg" alt="단일 문자 단축키 제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-13.jpg" alt="단일 문자 단축키 제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-14.jpg" alt="단일 문자 단축키 제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-15.jpg" alt="단일 문자 단축키 제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-1/guide2-1-16.jpg" alt="단일 문자 단축키 제공 사례" data-base-path />
+                        </div>
+                       
                     </div>
                 </div>
             </section>

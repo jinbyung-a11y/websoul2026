@@ -22,6 +22,9 @@
         .guide-subtab:hover { background: #eff6ff; color: #2563eb; }
         .guide-subtab.active { background: #2563eb; color: white; }
         .guide-content-area { padding: 2rem 1.5rem; }
+        .guide-bullet-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e5e7eb; }
+        .guide-bullet-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .guide-bullet-item img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.75rem; }
     </style>
 </head>
 <body>
@@ -62,6 +65,58 @@
                         <h2>2.4 쉬운 내비게이션</h2>
                         <p class="lead">콘텐츠의 반복되는 영역은 건너뛸 수 있어야 합니다.</p>
                         <p>반복 영역 건너뛰기, 제목 제공, 적절한 링크 텍스트, 고정된 참조 위치 정보 등 사용자가 쉽게 원하는 콘텐츠를 찾을 수 있도록 합니다.</p>
+
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">2.4.1. 반복 영역 건너뛰기</h3>
+                        <p style="margin-bottom: 1.5rem;">콘텐츠의 반복되는 영역은 건너뛸 수 있어야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 건너뛰기 링크를 제공하지 않은 경우</p>
+                            <p>• 건너뛰기 링크의 제공 방법이 적절하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-1.jpg" alt="건너뛰기 링크 미제공 사례" data-base-path />
+                        </div>
+                         <h3 style="margin-top: 2rem; margin-bottom: 1rem;">2.4.2. 제목 제공</h3>
+                        <p style="margin-bottom: 1.5rem;">페이지, 프레임, 콘텐츠 블록에는 적절한 제목을 제공해야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 페이지에 제목을 제공하지 않은 경우</p>
+                            <p>• 페이지에 제목을 적절하게 제공하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-2.jpg" alt="페이지 제목 미제공 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 프레임 요소에 제목을 제공하지 않은 경우</p>
+                            <p>• 프레임 요소에 제목을 적절하게 제공하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-3.jpg" alt="프레임 제목 미제공 사례" data-base-path />
+                        </div>
+                        <div class="guide-bullet-item">
+                            <p>• 콘텐츠 블록에 제목을 제공하지 않은 경우</p>
+                            <p>• 콘텐츠 블록에 제목을 적절하게 제공하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-4.jpg" alt="프레임 제목 미제공 사례" data-base-path />
+                        </div>
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">2.4.3. 적절한 링크 텍스트</h3>
+                        <p style="margin-bottom: 1.5rem;">링크 텍스트는 용도나 목적을 이해할 수 있도록 제공해야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 목적이나 용도를 알기 어려운 링크 텍스트를 제공한 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-5.jpg" alt="링크 텍스트 목적·용도 불명확 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-6.jpg" alt="링크 텍스트 목적·용도 불명확 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-7.jpg" alt="링크 텍스트 목적·용도 불명확 사례" data-base-path />
+                        </div>
+
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">2.4.4. 고정된 참조 위치 정보</h3>
+                        <p style="margin-bottom: 1.5rem;">전자출판문서 형식의 웹 페이지는 각 페이지로 이동할 수 있는 기능이 있어야 하고, 서식이나 플랫폼에 상관 없이 참조 위치 정보를 일관되게 제공ㆍ유지해야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 웹페이지로 제공되는 전자출판문서 콘텐츠에 대한 페이지 구분 정보를 제공하지 않은 경우</p>
+                            <p>• 웹페이지로 제공되는 전자출판문서 콘텐츠에 대한 페이지 이동 기능을 제공하지 않은 경우</p>
+                            <p>• 콘텐츠 변경(글꼴 변경, 간격 조절 등) 시 일관된 페이지 구분 정보를 제공·유지하지 않은 경우</p>
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-8.jpg" alt="전자출판문서 페이지 구분 정보 미제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-9.jpg" alt="전자출판문서 페이지 구분 정보 미제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-10.jpg" alt="전자출판문서 페이지 구분 정보 미제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-11.jpg" alt="전자출판문서 페이지 구분 정보 미제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-12.jpg" alt="전자출판문서 페이지 구분 정보 미제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-13.jpg" alt="전자출판문서 페이지 구분 정보 미제공 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-2-4/guide2-4-14.jpg" alt="전자출판문서 페이지 구분 정보 미제공 사례" data-base-path />
+                        </div>    
                     </div>
                 </div>
             </section>
