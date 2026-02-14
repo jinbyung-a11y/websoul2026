@@ -1,0 +1,15 @@
+{
+  "name": "websoul2026",
+  "version": "1.0.0",
+  "description": "웹소울랩 홈페이지",
+  "scripts": {
+    "start": "node server.js",
+    "inquiry": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7"
+  }
+}

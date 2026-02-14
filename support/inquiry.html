@@ -177,6 +177,48 @@
             .inquiry-form-label { width: 100%; border-right: none; border-bottom: 1px solid #e5e7eb; }
             .inquiry-form-field { padding: 12px 16px; }
         }
+        .inquiry-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .inquiry-modal-overlay.is-open { display: flex; }
+        .inquiry-modal {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        .inquiry-modal h3 {
+            margin: 0 0 0.75rem 0;
+            font-size: 1.25rem;
+            color: var(--gray-900);
+        }
+        .inquiry-modal p {
+            margin: 0 0 1.5rem 0;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+        .inquiry-modal .btn-close-modal {
+            display: inline-block;
+            background: #374151;
+            color: white;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .inquiry-modal .btn-close-modal:hover { background: #1f2937; }
     </style>
 </head>
 <body class="wa-premium-body">
@@ -277,9 +319,33 @@
 
     <div id="footer-placeholder"></div>
 
+    <div id="inquiryModalOverlay" class="inquiry-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="inquiryModalTitle" onclick="if(event.target===this) closeInquiryModal();">
+        <div class="inquiry-modal" onclick="event.stopPropagation();">
+            <h3 id="inquiryModalTitle">발송 완료</h3>
+            <p id="inquiryModalMessage">문의가 성공적으로 접수되었습니다.<br>담당자가 확인 후 연락드리겠습니다.</p>
+            <button type="button" class="btn-close-modal" onclick="closeInquiryModal()">확인</button>
+        </div>
+    </div>
+
     <script src="../js/component-loader.js"></script>
     <script src="../js/main.js"></script>
     <script>
+var INQUIRY_API = '/api/inquiry';
+
+function closeInquiryModal() {
+    var el = document.getElementById('inquiryModalOverlay');
+    if (el) el.classList.remove('is-open');
+}
+
+function showInquiryModal(title, message) {
+    var overlay = document.getElementById('inquiryModalOverlay');
+    var titleEl = document.getElementById('inquiryModalTitle');
+    var msgEl = document.getElementById('inquiryModalMessage');
+    if (titleEl) titleEl.textContent = title || '발송 완료';
+    if (msgEl) msgEl.innerHTML = (message || '문의가 성공적으로 접수되었습니다.<br>담당자가 확인 후 연락드리겠습니다.').replace(/\n/g, '<br>');
+    if (overlay) overlay.classList.add('is-open');
+}
+
 function goWrite() {
     var company = (document.getElementById('company') || {}).value || '';
     var name = (document.getElementById('name') || {}).value || '';
@@ -290,15 +356,38 @@ function goWrite() {
     if (!name.trim()) { alert('고객 담당자명을 입력해주세요.'); return; }
     if (!email.trim()) { alert('받으실 이메일을 입력해주세요.'); return; }
     if (!message.trim()) { alert('문의내용을 입력해주세요.'); return; }
-    var subject = encodeURIComponent('[웹소울랩 문의] ' + (company || '문의'));
-    var body = encodeURIComponent(
-        '고객 회사명: ' + company + '\n' +
-        '고객 담당자명: ' + name + '\n' +
-        '고객 연락처: ' + phone + '\n' +
-        '받으실 이메일: ' + email + '\n\n' +
-        '문의내용:\n' + message
-    );
-    window.location.href = 'mailto:support@websoul.co.kr?subject=' + subject + '&body=' + body;
+
+    var btn = document.querySelector('.btn_a');
+    if (btn && btn.getAttribute('data-loading') === '1') return;
+    if (btn) { btn.setAttribute('data-loading', '1'); btn.style.opacity = '0.7'; btn.style.pointerEvents = 'none'; }
+
+    var payload = {
+        company: company,
+        name: name,
+        phone: phone,
+        email: email,
+        message: message
+    };
+
+    fetch(INQUIRY_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+        if (!res.ok) throw new Error('발송 실패');
+        return res.json().catch(function() { return {}; });
+    })
+    .then(function() {
+        showInquiryModal('발송 완료', '문의가 성공적으로 접수되었습니다.\n담당자가 확인 후 연락드리겠습니다.');
+        document.getElementById('inquiryForm').reset();
+    })
+    .catch(function() {
+        alert('발송에 실패했습니다. 잠시 후 다시 시도하시거나 support@websoul.co.kr로 직접 문의해 주세요.');
+    })
+    .finally(function() {
+        if (btn) { btn.removeAttribute('data-loading'); btn.style.opacity = ''; btn.style.pointerEvents = ''; }
+    });
 }
     </script>
 </body>
