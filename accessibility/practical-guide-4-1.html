@@ -22,6 +22,9 @@
         .guide-subtab:hover { background: #eff6ff; color: #2563eb; }
         .guide-subtab.active { background: #2563eb; color: white; }
         .guide-content-area { padding: 2rem 1.5rem; }
+        .guide-bullet-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e5e7eb; }
+        .guide-bullet-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .guide-bullet-item img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.75rem; }
     </style>
 </head>
 <body>
@@ -59,6 +62,18 @@
                         <h2>4.1 문법 준수</h2>
                         <p class="lead">마크업 언어의 요소는 열고 닫음, 중첩 관계 및 속성 선언에 오류가 없어야 합니다.</p>
                         <p>HTML, CSS 등 웹 표준 문법을 준수하고 마크업 오류를 방지하여 다양한 환경에서 안정적으로 콘텐츠가 동작하도록 합니다.</p>
+
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">4.1.1. 마크업 오류 방지</h3>
+                        <p style="margin-bottom: 1.5rem;">마크업 언어의 요소는 열고 닫음, 중첩 관계 및 속성 선언에 오류가 없어야 한다.</p>
+
+                        <div class="guide-bullet-item">
+                            <p>• 태그의 열고 닫음 오류</p>
+                            <p>• 태그의 열고 닫는 순서가 중첩되는 오류</p>
+                            <p>• 중복 선언된 속성 오류</p>
+                            <p>• 한 페이지 안에 동일한 ID값이 존재하는 경우</p>
+                            <img src="../images/accessibility/practical-guide-4-1/guide4-1-1.jpg" alt="태그 열고 닫음 오류 사례" data-base-path />
+                            <img src="../images/accessibility/practical-guide-4-1/guide4-1-2.jpg" alt="태그 중첩 순서 오류 사례" data-base-path />
+                        </div>
                     </div>
                 </div>
             </section>

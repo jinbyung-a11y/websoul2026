@@ -8,216 +8,224 @@
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wa-primary-blue: #2563eb;
+            --wa-shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --wa-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+        .wa-premium-body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        .main-content.intro .content-section--lead { margin-bottom: var(--spacing-sm, 1rem); }
+        .content-section--lead + .section-wrapper { padding-top: var(--spacing-sm, 1rem); }
+        .section-wrapper { padding: var(--spacing-lg, 2rem) 0; position: relative; }
+        .section-header { text-align: center; margin-bottom: var(--spacing-md, 1.5rem); }
+        .section-header h2 {
+            font-size: var(--font-size-3xl, 1.875rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+        }
+        .section-header p { color: var(--gray-600); font-size: var(--font-size-xl, 1.25rem); }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+        .bento-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--spacing-lg, 2rem);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--wa-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wa-primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .bento-item h3 {
+            font-size: var(--font-size-xl, 1.25rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            color: var(--gray-900);
+        }
+        .bento-item p { color: var(--gray-600); line-height: 1.6; font-size: var(--font-size-sm, 0.875rem); }
+        .process-img-wrap {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg, 2rem);
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        .process-img-wrap img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--wa-shadow-soft);
+        }
+        .process-step-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .process-step-card:hover { box-shadow: var(--wa-shadow-hover); }
+        .process-step-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 14px;
+            color: var(--wa-primary-blue);
+        }
+        .process-step-icon svg { width: 28px; height: 28px; }
+        .process-step-content { flex: 1; min-width: 0; }
+        .process-step-content h3 { font-size: 1.125rem; font-weight: 700; margin: 0 0 0.375rem 0; color: var(--gray-900); }
+        .process-step-content p { margin: 0; color: var(--gray-600); font-size: 0.8125rem; line-height: 1.5; }
+        .process-step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        @media (max-width: 768px) { .process-step-grid { grid-template-columns: 1fr; } }
+    </style>
 </head>
-<body>
-    <!-- Header Component Placeholder -->
+<body class="wa-premium-body">
     <div id="header-placeholder"></div>
 
-    <!-- Page Header -->
     <section class="page-header page-header--digital-inclusion">
         <div class="container">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="#">디지털 포용</a>
-                <span>/</span>
-                <span>디지털 교육</span>
-            </div>
+            <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">디지털 포용</a><span>/</span><span>디지털 교육</span></div>
             <h1 class="page-title">디지털 교육</h1>
-            <p class="page-subtitle">디지털 포용과 접근성에 대한 전문 교육 프로그램</p>
+            <p class="page-subtitle">Digital Inclusion & Accessibility Education</p>
         </div>
     </section>
 
-    <!-- Main Content with Side Navigation -->
     <div class="page-container">
-        <!-- Submenu Component Placeholder -->
         <div id="submenu-placeholder"></div>
-
-        <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content intro">
             <section class="page-content" id="main-content">
                 <div class="container">
-            
-            <!-- 디지털 교육 소개 -->
-            <div class="content-section">
-                <h2>디지털 교육이란?</h2>
-                <p class="lead">디지털 포용과 접근성에 대한 전문 교육을 통해 디지털 격차를 해소하고, 모든 사람이 디지털 혜택을 누릴 수 있도록 지원하는 교육 프로그램입니다.</p>
-                <p>공공기관, 기업, 교육기관 등 다양한 조직의 임직원과 일반인을 대상으로 디지털 포용법, 접근성, 사용자 경험 등에 대한 교육을 제공합니다.</p>
-            </div>
 
-            <!-- 교육 프로그램 -->
-            <div class="content-section bg-light">
-                <h2>교육 프로그램</h2>
-                
-                <div class="standards-grid">
-                    <div class="standard-card">
-                        <h3>디지털 포용법 교육</h3>
-                        <p class="standard-org">법률 이해 및 준수 방안</p>
-                        <p>디지털 포용법의 주요 내용과 준수 방안에 대한 교육입니다.</p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 법률 주요 내용</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 적용 대상 및 범위</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 준수 사항</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 이행 방안</li>
-                        </ul>
+                    <div class="content-section content-section--lead">
+                        <h2>디지털 교육이란?</h2>
+                        <p class="lead">디지털 포용과 접근성에 대한 전문 교육을 통해 디지털 격차를 해소하고, 모든 사람이 디지털 혜택을 누릴 수 있도록 지원하는 교육 프로그램입니다.</p>
+                        <p>공공기관, 기업, 교육기관 등 다양한 조직의 임직원과 일반인을 대상으로 디지털 포용법, 웹·모바일·키오스크 접근성, 사용자 경험(UX) 등에 대한 이론과 실무 교육을 제공합니다.</p>
                     </div>
 
-                    <div class="standard-card">
-                        <h3>웹 접근성 교육</h3>
-                        <p class="standard-org">웹 접근성 실무 교육</p>
-                        <p>웹 접근성 지침과 실무 적용 방법에 대한 교육입니다.</p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ KWCAG 2.2 이해</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 접근성 진단 방법</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 개선 실무</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 사례 연구</li>
-                        </ul>
+                    <div class="section-wrapper">
+                        <div class="section-header">
+                            <h2>교육 대상</h2>
+                            <p>기획자, 개발자, 디자이너, 관리자 등 디지털 서비스 관련 담당자를 위한 맞춤 교육</p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item">
+                                <div class="bento-icon">👨‍💼</div>
+                                <h3>기획자 및 관리자</h3>
+                                <p>디지털 서비스 기획·관리 담당자를 위한 정책 이해, 기획 방향 설정, 예산·일정 계획 교육</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">💻</div>
+                                <h3>개발자</h3>
+                                <p>웹·앱 개발자를 위한 KWCAG 적용, 보조기술 호환, 마크업·ARIA 실무 교육</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🎨</div>
+                                <h3>디자이너</h3>
+                                <p>UI/UX 디자이너를 위한 접근 가능한 디자인 원칙, 명도 대비, 키보드·포커스 설계 교육</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">📋</div>
+                                <h3>품질·접근성 담당자</h3>
+                                <p>접근성 진단, 개선 계획 수립, 인증 대응을 위한 실무 및 점검 방법 교육</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="standard-card">
-                        <h3>모바일 앱 접근성 교육</h3>
-                        <p class="standard-org">모바일 앱 접근성 실무</p>
-                        <p>모바일 앱의 접근성 설계 및 개발에 대한 교육입니다.</p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 모바일 접근성 지침</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ iOS/Android 접근성</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 스크린 리더 호환</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 실무 적용</li>
-                        </ul>
-                    </div>
+                    <div class="section-wrapper" style="background: var(--gray-100);">
+                        <div class="section-header">
+                            <h2>교육 프로그램</h2>
+                            <p>디지털 포용법, 웹 접근성, 모바일 앱·키오스크 접근성 등 단계별 프로그램</p>
+                        </div>
+                        <div class="process-container" style="max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg);">
+                            <div class="standards-grid process-step-grid">
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>디지털 포용법 교육</h3>
+                                        <p>법률 주요 내용, 적용 대상·범위, 준수 사항, 이행 방안</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>웹 접근성 교육</h3>
+                                        <p>KWCAG 2.2 이해, 접근성 진단 방법, 개선 실무, 사례 연구</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>모바일 앱 접근성 교육</h3>
+                                        <p>모바일 접근성 지침, iOS/Android 접근성, 스크린 리더 호환, 실무 적용</p>
+                                    </div>
+                                </div>
+                                <div class="process-step-card">
+                                    <div class="process-step-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                                    </div>
+                                    <div class="process-step-content">
+                                        <h3>키오스크 접근성 교육</h3>
+                                        <p>키오스크 접근성 지침, 물리적·인터페이스 설계, 사용자 테스트</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="standard-card">
-                        <h3>키오스크 접근성 교육</h3>
-                        <p class="standard-org">키오스크 접근성 설계</p>
-                        <p>키오스크의 접근성 설계 및 구현에 대한 교육입니다.</p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 키오스크 접근성 지침</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 물리적 접근성</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 인터페이스 설계</li>
-                            <li style="padding: 0.5rem 0; color: var(--gray-700);">✓ 사용자 테스트</li>
-                        </ul>
+                        <div class="process-img-wrap" style="margin-top: 2.5rem;">
+                            <img src="../images/digital-inclusion/education.png" alt="디지털 교육 프로그램 개요" data-base-path />
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- 교육 대상 -->
-            <div class="content-section">
-                <h2>교육 대상</h2>
-                
-                <div class="importance-grid">
-                    <div class="importance-card">
-                        <div class="importance-icon">👨‍💼</div>
-                        <h3>기획자 및 관리자</h3>
-                        <p>디지털 서비스 기획 및 관리 담당자</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 1rem; text-align: left;">
-                            <li style="padding: 0.25rem 0;">✓ 정책 이해</li>
-                            <li style="padding: 0.25rem 0;">✓ 기획 방향 설정</li>
-                            <li style="padding: 0.25rem 0;">✓ 예산 계획</li>
-                        </ul>
-                    </div>
-
-                    <div class="importance-card">
-                        <div class="importance-icon">👨‍💻</div>
-                        <h3>개발자</h3>
-                        <p>웹사이트 및 앱 개발 담당자</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 1rem; text-align: left;">
-                            <li style="padding: 0.25rem 0;">✓ 접근성 코딩</li>
-                            <li style="padding: 0.25rem 0;">✓ 보조기술 호환</li>
-                            <li style="padding: 0.25rem 0;">✓ 테스트 방법</li>
-                        </ul>
-                    </div>
-
-                    <div class="importance-card">
-                        <div class="importance-icon">🎨</div>
-                        <h3>디자이너</h3>
-                        <p>UI/UX 디자인 담당자</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 1rem; text-align: left;">
-                            <li style="padding: 0.25rem 0;">✓ 접근성 디자인</li>
-                            <li style="padding: 0.25rem 0;">✓ 색상 및 대비</li>
-                            <li style="padding: 0.25rem 0;">✓ 사용자 경험</li>
-                        </ul>
-                    </div>
-
-                    <div class="importance-card">
-                        <div class="importance-icon">📝</div>
-                        <h3>콘텐츠 담당자</h3>
-                        <p>콘텐츠 기획 및 관리 담당자</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 1rem; text-align: left;">
-                            <li style="padding: 0.25rem 0;">✓ 접근 가능한 콘텐츠</li>
-                            <li style="padding: 0.25rem 0;">✓ 대체 텍스트</li>
-                            <li style="padding: 0.25rem 0;">✓ 명확한 표현</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 교육 방식 -->
-            <div class="content-section bg-light">
-                <h2>교육 방식</h2>
-                
-                <div class="philosophy-grid">
-                    <div class="philosophy-card">
-                        <h3>오프라인 교육</h3>
-                        <p>직접 만나서 진행하는 집합 교육</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
-                            <li style="padding: 0.25rem 0;">✓ 실습 중심 교육</li>
-                            <li style="padding: 0.25rem 0;">✓ 질의응답 시간</li>
-                            <li style="padding: 0.25rem 0;">✓ 네트워킹</li>
-                        </ul>
-                    </div>
-
-                    <div class="philosophy-card">
-                        <h3>온라인 교육</h3>
-                        <p>화상회의를 통한 실시간 교육</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
-                            <li style="padding: 0.25rem 0;">✓ 원격 참여 가능</li>
-                            <li style="padding: 0.25rem 0;">✓ 녹화 제공</li>
-                            <li style="padding: 0.25rem 0;">✓ 비용 효율적</li>
-                        </ul>
-                    </div>
-
-                    <div class="philosophy-card">
-                        <h3>맞춤형 교육</h3>
-                        <p>조직의 특성에 맞춘 맞춤형 교육</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
-                            <li style="padding: 0.25rem 0;">✓ 조직 특성 반영</li>
-                            <li style="padding: 0.25rem 0;">✓ 실무 사례 중심</li>
-                            <li style="padding: 0.25rem 0;">✓ 내부 시스템 연계</li>
-                        </ul>
-                    </div>
-
-                    <div class="philosophy-card">
-                        <h3>자격증 교육</h3>
-                        <p>접근성 관련 자격증 취득 교육</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
-                            <li style="padding: 0.25rem 0;">✓ 웹 접근성 평가사</li>
-                            <li style="padding: 0.25rem 0;">✓ 접근성 전문가</li>
-                            <li style="padding: 0.25rem 0;">✓ 자격증 취득 지원</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="cta-section">
-                <h2>디지털 교육이 필요하신가요?</h2>
-                <p>전문 강사가 귀사 조직의 특성에 맞는 디지털 포용 및 접근성 교육을 제공해드립니다.</p>
-                <div class="cta-buttons">
-                    <a href="../index.html#contact" class="btn btn-primary">교육 문의하기</a>
-                    <a href="law.html" class="btn btn-outline">디지털 포용법 보기</a>
-                </div>
-            </div>
 
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Footer Component Placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader (must load before main.js) -->
     <script src="../js/component-loader.js"></script>
     <script src="../js/main.js"></script>
 </body>

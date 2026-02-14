@@ -3,138 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="웹소울랩 - 웹 접근성 인증마크">
     <title>웹 접근성 인증마크 - 웹소울랩</title>
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pages.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wa-primary-blue: #2563eb;
+            --wa-shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --wa-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+        .wa-premium-body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        .main-content.intro .content-section--lead { margin-bottom: var(--spacing-sm, 1rem); }
+        .content-section--lead + .section-wrapper { padding-top: var(--spacing-sm, 1rem); }
+        .section-wrapper { padding: var(--spacing-lg, 2rem) 0; position: relative; }
+        .section-header { text-align: center; margin-bottom: var(--spacing-md, 1.5rem); }
+        .section-header h2 {
+            font-size: var(--font-size-3xl, 1.875rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+        }
+        .section-header p { color: var(--gray-600); font-size: var(--font-size-xl, 1.25rem); }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+        .bento-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--spacing-lg, 2rem);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--wa-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wa-primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .bento-item h3 {
+            font-size: var(--font-size-xl, 1.25rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            color: var(--gray-900);
+        }
+        .bento-item p { color: var(--gray-600); line-height: 1.6; font-size: var(--font-size-sm, 0.875rem); }
+        .process-img-wrap {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg, 2rem);
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        .process-img-wrap img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--wa-shadow-soft);
+        }
+        .process-step-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .process-step-card:hover { box-shadow: var(--wa-shadow-hover); }
+        .process-step-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 14px;
+            color: var(--wa-primary-blue);
+        }
+        .process-step-icon svg { width: 28px; height: 28px; }
+        .process-step-content { flex: 1; min-width: 0; }
+        .process-step-content h3 { font-size: 1.125rem; font-weight: 700; margin: 0 0 0.375rem 0; color: var(--gray-900); }
+        .process-step-content p { margin: 0; color: var(--gray-600); font-size: 0.8125rem; line-height: 1.5; }
+        .process-step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        @media (max-width: 768px) { .process-step-grid { grid-template-columns: 1fr; } }
+        /* 웹 접근성 품질인증기관: 1행 3열 카드 */
+        .cert-agency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        .cert-agency-grid .bento-item {
+            padding: var(--spacing-md, 1.5rem);
+            border-radius: 20px;
+        }
+        .cert-agency-grid .bento-icon {
+            width: 44px;
+            height: 44px;
+            font-size: 1.25rem;
+            margin-bottom: 14px;
+        }
+        .cert-agency-grid .bento-item h3 {
+            font-size: var(--font-size-lg, 1.125rem);
+            margin-bottom: 0.5rem;
+        }
+        .cert-agency-grid .bento-item p {
+            font-size: 0.8125rem;
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .cert-agency-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-<body>
-    <!-- Header Component Placeholder -->
+<body class="wa-premium-body">
     <div id="header-placeholder"></div>
 
-    <!-- Page Header -->
     <section class="page-header page-header--accessibility">
         <div class="container">
             <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="#">웹 접근성의 이해</a><span>/</span><span>웹 접근성 인증마크</span></div>
-            <h1 class="page-title">웹 접근성 인증마크 (WA 인증)</h1>
+            <h1 class="page-title">웹 접근성 인증마크</h1>
             <p class="page-subtitle">Web Accessibility Certification Mark</p>
         </div>
     </section>
 
-    <!-- Main Content with Side Navigation -->
     <div class="page-container">
-        <!-- Submenu Component Placeholder -->
         <div id="submenu-placeholder"></div>
-
-        <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content intro">
             <section class="page-content" id="main-content">
                 <div class="container">
-            <div class="content-section">
-                <h2>WA 인증마크란?</h2>
-                <p class="lead">웹 접근성 품질인증마크는 웹사이트가 장애인 및 고령자 등이 웹사이트 이용에 불편이 없도록 웹 접근성 표준을 준수했음을 인증하는 마크입니다.</p>
-                <p>과학기술정보통신부가 지정한 웹 접근성 품질인증기관이 KWCAG 2.2 기준으로 심사하여 발급합니다.</p>
-            </div>
 
-            <div class="content-section bg-light">
-                <h2>인증 획득의 장점</h2>
-                <div class="importance-grid">
-                    <div class="importance-card">
-                        <div class="importance-icon">✅</div>
-                        <h3>법적 의무 준수</h3>
-                        <p>장애인차별금지법 준수 증명</p>
+                    <div class="content-section content-section--lead">
+                        <h2>웹 접근성 품질인증마크(WA 인증)란?</h2>
+                        <p class="lead">웹 접근성 품질인증마크는 웹사이트가 장애인 및 고령자 등이 웹사이트 이용에 불편이 없도록 웹 접근성 표준을 준수했음을 인증하는 공식 마크입니다.</p>
+                        <p>과학기술정보통신부가 지정한 웹 접근성 품질인증기관이 한국형 웹콘텐츠 접근성 지침(KWCAG 2.2) 기준으로 심사하여 발급하며, 인증을 받은 사이트에는 WA 마크를 게시할 수 있습니다.</p>
                     </div>
-                    <div class="importance-card">
-                        <div class="importance-icon">🏆</div>
-                        <h3>신뢰도 향상</h3>
-                        <p>공신력 있는 인증으로 기관 신뢰도 제고</p>
-                    </div>
-                    <div class="importance-card">
-                        <div class="importance-icon">♿</div>
-                        <h3>사회적 책임</h3>
-                        <p>장애인의 정보 접근권 보장</p>
-                    </div>
-                    <div class="importance-card">
-                        <div class="importance-icon">👥</div>
-                        <h3>이용자 확대</h3>
-                        <p>모든 사용자가 이용 가능한 웹사이트</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="content-section">
-                <h2>인증 절차</h2>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h3>신청</h3>
-                        <p>웹 접근성 품질인증기관에 인증 신청</p>
+                    <div class="section-wrapper">
+                        <div class="section-header">
+                            <h2> 웹접근성 품질 인증 획득의 장점</h2>
+                            <p>법적 의무 준수, 신뢰도 향상, 사회적 책임 실현, 이용자 확대로 이어집니다.</p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item">
+                                <div class="bento-icon">⚖️</div>
+                                <h3>법적 의무 준수</h3>
+                                <p>장애인차별금지법, 국가정보화기본법 등에 따라 공공기관 및 일정 규모 이상의 기업은 웹 접근성 준수가 의무사항이며, 인증마크는 그 준수 사실을 증명합니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">🏆</div>
+                                <h3>신뢰도 향상</h3>
+                                <p>공인된 인증기관의 심사를 통과했다는 점으로 기관·기업의 웹 접근성 수준에 대한 신뢰를 높일 수 있습니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">♿</div>
+                                <h3>사회적 책임</h3>
+                                <p>장애인·고령자 등 모든 사용자의 정보 접근권을 보장한다는 사회적 책임을 실현할 수 있습니다.</p>
+                            </div>
+                            <div class="bento-item">
+                                <div class="bento-icon">👥</div>
+                                <h3>이용자 확대</h3>
+                                <p>접근성이 확보된 사이트는 더 많은 사용자가 이용할 수 있어 잠재 고객층을 확대하는 효과가 있습니다.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h3>예비 진단</h3>
-                        <p>자체 또는 전문업체를 통한 사전 점검</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h3>본심사</h3>
-                        <p>인증기관의 전문가가 KWCAG 2.2 기준으로 심사</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h3>보완 및 재심사</h3>
-                        <p>지적사항 보완 후 재심사 진행</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">5</div>
-                        <h3>인증 획득</h3>
-                        <p>최종 합격 후 WA 인증마크 발급 (2년 유효)</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="content-section bg-light">
-                <h2>웹 접근성 품질인증기관</h2>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <div style="background: white; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 1.5rem;">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">한국웹접근성인증평가원</h3>
-                        <p style="margin: 0; color: var(--gray-700);">웹사이트 및 모바일 앱 접근성 인증 수행</p>
+                    <div class="section-wrapper" style="background: var(--gray-100);">
+                        <div class="section-header">
+                            <h2> 웹접근성 품질 인증 절차차</h2>                        
+                        </div>
+                        <div class="process-img-wrap" style="margin-top: 2.5rem;">
+                            <img src="../images/accessibility/certification/certification.png" alt="웹 접근성 인증마크(WA 인증) 안내" data-base-path />
+                        </div>
                     </div>
-                    <div style="background: white; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 1.5rem;">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">한국장애인인권포럼</h3>
-                        <p style="margin: 0; color: var(--gray-700);">웹사이트 접근성 인증 수행</p>
+
+                    <div class="section-wrapper">
+                        <div class="section-header">
+                            <h2>웹 접근성 품질인증기관</h2>
+                            <p>과학기술정보통신부가 지정한 인증기관에서 심사 및 인증을 수행합니다.</p>
+                        </div>
+                        <div class="cert-agency-grid">
+                            <div class="bento-item">
+                                <h3>한국웹접근성인증평가원</h3>
+                                <p>웹사이트 접근성 품질인증 심사를 수행하는 지정 인증기관입니다.</p>
+                                <p>TEL: 02-858-7220</p>
+                            </div>
+                            <div class="bento-item">
+                                <h3>한국장애인인권포럼</h3>
+                                <p>웹사이트 접근성 품질인증 심사를 수행하는 지정 인증기관입니다.</p>
+                                <p>TEL: 02-2678-0078</p>
+                            </div>
+                            <div class="bento-item">
+                                <h3>한국디지털접근성진흥원</h3>
+                                <p>웹사이트 접근성 품질인증 심사를 수행하는 지정 인증기관입니다.</p>
+                                <p>TEL: 02-2138-7580</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="content-section">
-                <h2>인증 유지 및 갱신</h2>
-                <div style="background: var(--warning-light); padding: 2rem; border-radius: var(--radius-md); border-left: 4px solid var(--warning-color);">
-                    <h3 style="color: var(--warning-dark); margin-bottom: 1rem;">⚠️ 인증 유효기간</h3>
-                    <p style="margin: 0; color: var(--gray-800);">WA 인증마크의 유효기간은 2년입니다. 유효기간 만료 전에 재인증 심사를 받아야 하며, 인증 기간 중에도 웹사이트의 접근성을 지속적으로 유지 관리해야 합니다.</p>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <h2>WA 인증 획득을 지원합니다</h2>
-                <p>웹소울랩은 99% 이상의 WA 인증 획득률을 자랑합니다. 인증 획득까지 전 과정을 지원합니다.</p>
-                <div class="cta-buttons">
-                    <a href="../consulting/accessibility.html" class="btn btn-primary">인증 컨설팅 문의</a>
-                    <a href="../portfolio/accessibility-consulting.html" class="btn btn-outline">인증 실적 보기</a>
-                </div>
-            </div>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Footer Component Placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader (must load before main.js) -->
     <script src="../js/component-loader.js"></script>
     <script src="../js/main.js"></script>
 </body>
