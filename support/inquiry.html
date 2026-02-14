@@ -8,10 +8,178 @@
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wa-primary-blue: #2563eb;
+            --wa-shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --wa-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+        .wa-premium-body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            color: var(--gray-900);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        .main-content.intro .content-section--lead { margin-bottom: var(--spacing-sm, 1rem); }
+        .content-section--lead + .section-wrapper { padding-top: var(--spacing-sm, 1rem); }
+        .section-wrapper { padding: var(--spacing-lg, 2rem) 0; position: relative; }
+        .section-header { text-align: center; margin-bottom: var(--spacing-md, 1.5rem); }
+        .section-header h2 {
+            font-size: var(--font-size-3xl, 1.875rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+        }
+        .section-header p { color: var(--gray-600); font-size: var(--font-size-xl, 1.25rem); }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md, 1.5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(3, 1fr); } }
+        .bento-item {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--spacing-lg, 2rem);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--wa-shadow-soft);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--wa-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wa-primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .bento-item h3 {
+            font-size: var(--font-size-xl, 1.25rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm, 1rem);
+            color: var(--gray-900);
+        }
+        .bento-item p { color: var(--gray-600); line-height: 1.6; font-size: var(--font-size-sm, 0.875rem); }
+        .inquiry-form-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg, 2rem);
+        }
+        .inquiry-form-wrap {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--wa-shadow-soft);
+        }
+        .inquiry-form-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            min-height: 52px;
+        }
+        .inquiry-form-row:last-of-type { border-bottom: none; }
+        .inquiry-form-row.form-row-block {
+            display: block;
+            align-items: stretch;
+            min-height: 0;
+            padding: 14px 16px;
+        }
+        .inquiry-form-row.form-row-block .inquiry-form-label {
+            margin-bottom: 8px;
+            padding: 0;
+            background: transparent;
+            border: none;
+        }
+        .inquiry-form-label {
+            flex-shrink: 0;
+            width: 160px;
+            padding: 14px 16px;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            color: var(--gray-700);
+            background: #f9fafb;
+            border-right: 1px solid #e5e7eb;
+        }
+        .inquiry-form-label .required { color: #dc2626; margin-right: 2px; }
+        .inquiry-form-field {
+            flex: 1;
+            padding: 10px 16px;
+            min-width: 0;
+        }
+        .form-row-block .inquiry-form-field { padding: 0 16px 14px; }
+        .inquiry-form-field input,
+        .inquiry-form-field textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.9375rem;
+            font-family: inherit;
+        }
+        .inquiry-form-field input:focus,
+        .inquiry-form-field textarea:focus {
+            outline: none;
+            border-color: var(--wa-primary-blue);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        .inquiry-form-field textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .inquiry-form-field .field-hint {
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+        .inquiry-form-actions {
+            text-align: center;
+            padding: var(--spacing-lg, 2rem) 0;
+        }
+        .inquiry-form-actions .btn_a,
+        .inquiry-form-actions .btn-inquiry {
+            display: inline-block;
+            background: #374151;
+            color: white;
+            padding: 14px 48px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            text-decoration: none;
+        }
+        .inquiry-form-actions .btn_a:hover,
+        .inquiry-form-actions .btn-inquiry:hover {
+            background: #1f2937;
+            color: white;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 640px) {
+            .inquiry-form-row { flex-wrap: wrap; }
+            .inquiry-form-label { width: 100%; border-right: none; border-bottom: 1px solid #e5e7eb; }
+            .inquiry-form-field { padding: 12px 16px; }
+        }
+    </style>
 </head>
-<body>
-    <!-- Header Component Placeholder -->
+<body class="wa-premium-body">
     <div id="header-placeholder"></div>
 
     <section class="page-header page-header--support">
@@ -23,99 +191,115 @@
     </section>
 
     <div class="page-container">
-        <!-- Submenu Component Placeholder -->
         <div id="submenu-placeholder"></div>
-        <main class="main-content">
-    <section class="page-content">
-        <div class="container">
-            <div class="content-section">
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <h2>문의 정보</h2>
+        <main class="main-content intro">
+            <section class="page-content" id="main-content">
+                <div class="container">
+
+                    <div class="content-section content-section--lead">
+                        <h2>프로젝트/솔루션 문의</h2>
+                        <p class="lead">웹 접근성 컨설팅, 웹사이트 통합품질 컨설팅(WICC), AI디지털 교과서, UI/UX 컨설팅, 
+                            UI/UX 사용성 테스트 웹 호환성, 웹사이트 구축·운영, 솔루션 제품 등 서비스 관련 문의를 이메일로 보내주시면 담당자가 확인 후 연락드리겠습니다.</p>
+                    </div>
+
                     
-                    <form id="contactForm" class="contact-form" style="margin-top: 2rem;">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="company">회사명 / 기관명 <span style="color: var(--error-color);">*</span></label>
-                                <input type="text" id="company" name="company" required>
+
+                    <div class="section-wrapper">
+                        <div class="inquiry-form-section">
+                            <form id="inquiryForm" class="inquiry-form" novalidate onsubmit="goWrite(); return false;">
+                                <div class="inquiry-form-wrap">
+                                    <div class="inquiry-form-row">
+                                        <span class="inquiry-form-label"><span class="required" aria-hidden="true">*</span> 고객 회사명</span>
+                                        <div class="inquiry-form-field">
+                                            <input type="text" id="company" name="company" required placeholder="회사명 또는 기관명을 입력하세요" aria-required="true" aria-label="고객 회사명">
+                                        </div>
+                                    </div>
+                                    <div class="inquiry-form-row">
+                                        <span class="inquiry-form-label"><span class="required" aria-hidden="true">*</span> 고객 담당자명</span>
+                                        <div class="inquiry-form-field">
+                                            <input type="text" id="name" name="name" required placeholder="담당자명을 입력하세요" aria-required="true" aria-label="고객 담당자명">
+                                        </div>
+                                    </div>
+                                    <div class="inquiry-form-row">
+                                        <span class="inquiry-form-label">고객 연락처</span>
+                                        <div class="inquiry-form-field">
+                                            <input type="tel" id="phone" name="phone" placeholder="연락처를 입력하세요" aria-label="고객 연락처">
+                                        </div>
+                                    </div>
+                                    <div class="inquiry-form-row">
+                                        <span class="inquiry-form-label"><span class="required" aria-hidden="true">*</span> 받으실 이메일</span>
+                                        <div class="inquiry-form-field">
+                                            <input type="email" id="email" name="email" required placeholder="답변 받으실 이메일 주소" aria-required="true" aria-label="받으실 이메일">
+                                            <p class="field-hint">(예시 support@websoul.co.kr)</p>
+                                        </div>
+                                    </div>
+                                    <div class="inquiry-form-row form-row-block">
+                                        <span class="inquiry-form-label"><span class="required" aria-hidden="true">*</span> 문의내용</span>
+                                        <div class="inquiry-form-field">
+                                            <textarea id="message" name="message" required placeholder="문의하실 내용을 상세히 작성해주세요." aria-required="true" aria-label="문의내용"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inquiry-form-actions">
+                                    <a class="btn_a" href="javascript:goWrite()">문의하기</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="section-wrapper">
+                            <div class="section-header">
+                                <h2>연락 방법</h2>
+                                <p>대표전화, 팩스, 이메일로 연락 가능합니다.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="name">담당자명 <span style="color: var(--error-color);">*</span></label>
-                                <input type="text" id="name" name="name" required>
+                            <div class="bento-grid">
+                                <div class="bento-item">
+                                    <div class="bento-icon">📞</div>
+                                    <h3>대표전화</h3>
+                                    <p>070-8622-6032</p>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-icon">📠</div>
+                                    <h3>팩스</h3>
+                                    <p>070-8224-5089</p>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-icon">✉️</div>
+                                    <h3>이메일</h3>
+                                    <p>support@websoul.co.kr</p>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">이메일 <span style="color: var(--error-color);">*</span></label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">연락처 <span style="color: var(--error-color);">*</span></label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service">문의 서비스 <span style="color: var(--error-color);">*</span></label>
-                            <select id="service" name="service" required>
-                                <option value="">선택해주세요</option>
-                                <option value="wicc">웹 사이트 통합품질 컨설팅 (WICC)</option>
-                                <option value="accessibility">웹 접근성 컨설팅</option>
-                                <option value="ai-digital-textbook">AI디지털 교과서 컨설팅</option>
-                                <option value="compatibility">웹 호환성 컨설팅</option>
-                                <option value="construction">웹사이트 구축 및 운영</option>
-                                <option value="solution">솔루션 제품</option>
-                                <option value="other">기타</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="website">웹사이트 URL</label>
-                            <input type="url" id="website" name="website" placeholder="https://">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">문의 내용 <span style="color: var(--error-color);">*</span></label>
-                            <textarea id="message" name="message" rows="8" required placeholder="문의하실 내용을 상세히 작성해주세요."></textarea>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">문의하기</button>
-                        </div>
-                    </form>
                 </div>
-            </div>
-
-            <div class="content-section bg-light">
-                <h2>기타 연락 방법</h2>
-                <div class="importance-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="importance-card">
-                        <div class="importance-icon">📞</div>
-                        <h3>대표전화</h3>
-                        <p>070-8622-6032</p>
-                    </div>
-                    <div class="importance-card">
-                        <div class="importance-icon">📠</div>
-                        <h3>팩스</h3>
-                        <p>070-8224-5089</p>
-                    </div>
-                    <div class="importance-card">
-                        <div class="importance-icon">✉️</div>
-                        <h3>이메일</h3>
-                        <p>support@websoul.co.kr</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    </main>
+            </section>
+        </main>
     </div>
 
-    <!-- Footer Component Placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- Component Loader (must load before main.js) -->
     <script src="../js/component-loader.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+function goWrite() {
+    var company = (document.getElementById('company') || {}).value || '';
+    var name = (document.getElementById('name') || {}).value || '';
+    var phone = (document.getElementById('phone') || {}).value || '';
+    var email = (document.getElementById('email') || {}).value || '';
+    var message = (document.getElementById('message') || {}).value || '';
+    if (!company.trim()) { alert('고객 회사명을 입력해주세요.'); return; }
+    if (!name.trim()) { alert('고객 담당자명을 입력해주세요.'); return; }
+    if (!email.trim()) { alert('받으실 이메일을 입력해주세요.'); return; }
+    if (!message.trim()) { alert('문의내용을 입력해주세요.'); return; }
+    var subject = encodeURIComponent('[웹소울랩 문의] ' + (company || '문의'));
+    var body = encodeURIComponent(
+        '고객 회사명: ' + company + '\n' +
+        '고객 담당자명: ' + name + '\n' +
+        '고객 연락처: ' + phone + '\n' +
+        '받으실 이메일: ' + email + '\n\n' +
+        '문의내용:\n' + message
+    );
+    window.location.href = 'mailto:support@websoul.co.kr?subject=' + subject + '&body=' + body;
+}
+    </script>
 </body>
 </html>
